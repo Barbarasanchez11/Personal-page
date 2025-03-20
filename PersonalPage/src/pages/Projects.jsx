@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
+import '../styles/Projects.css'
+
 
 const projects = [
   {
