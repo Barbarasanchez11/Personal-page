@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+
 
 function ProjectCard({ project, isHovered, setHovered }) {
   return (
@@ -19,9 +21,10 @@ function ProjectCard({ project, isHovered, setHovered }) {
         >
           <h2 className="project-title">{project.title}</h2>
           <p className="project-description">{project.description}</p>
-          <a href={project.link} className="project-link">
+          <Link to={project.link}
+           className="project-link">
             Ver Proyecto →
-          </a>
+          </Link>
         </motion.div>
       )}
     </motion.div>

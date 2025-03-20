@@ -1,11 +1,14 @@
-/* Contenedor del carrusel */
+.grid-container {
+    display: flex;
+    gap: 20px;
+}
 .carousel-container {
     width: 80%;
     margin: auto;
     padding: 50px 0;
   }
   
-  /* Tarjeta de proyecto */
+  
   .project-card {
     position: relative;
     width: 100%;
@@ -20,7 +23,7 @@
     transform: scale(1.05);
   }
   
-  /* Imagen del proyecto */
+  
   .project-image {
     width: 100%;
     height: 100%;
