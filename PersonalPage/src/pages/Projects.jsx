@@ -2,7 +2,8 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 import '../styles/Projects.css'
-
+import ProjectCarousel from "../components/projects/ProjectCarousel";
+import ProjectCard from "../components/projects/ProjectCard";
 
 const projects = [
   {

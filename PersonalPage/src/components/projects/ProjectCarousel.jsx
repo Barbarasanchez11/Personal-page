@@ -1,13 +1,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
-import "../styles/projects.css";
 import ProjectCard from "./ProjectCard";
 
-// Datos de los proyectos
 const projects = [
   {
     id: 1,
@@ -30,32 +24,46 @@ const projects = [
     image: "/src/assets/project3.jpg",
     link: "https://mi-portfolio.com",
   },
+
+  {
+    id: 4,
+    title: "Portfolio Creativo",
+    description: "Diseño minimalista con animaciones únicas.",
+    image: "/src/assets/project4.jpg",
+    link: "https://mi-portfolio.com",
+  },
 ];
 
 function ProjectCarousel() {
-  const [hovered, setHovered] = useState(null);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % projects.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + projects.length) % projects.length
+    );
+  };
 
   return (
     <div className="carousel-container">
-      <Swiper
-        modules={[Navigation]}
-        navigation
-        spaceBetween={50}
-        slidesPerView={1.5}
-        centeredSlides={true}
-      >
-        {projects.map((project) => (
-          <SwiperSlide key={project.id}>
-            <ProjectCard
-              project={project}
-              isHovered={hovered === project.id}
-              setHovered={setHovered}
-            />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      <button className="prev-btn" onClick={prevSlide}>‹</button>
+      <div className="carousel">
+        <motion.div
+          className="carousel-inner"
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <ProjectCard project={projects[currentIndex]} />
+        </motion.div>
+      </div>
+      <button className="next-btn" onClick={nextSlide}>›</button>
     </div>
   );
 }
 
 export default ProjectCarousel;
+
