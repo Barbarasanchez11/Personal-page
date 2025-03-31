@@ -7,15 +7,18 @@ import HireMeGame from './pages/HireMeGame';
 
 import Footer from "./components/Footer";
 import HamburgerMenu from './components/HamburgerMenu';
+import ContactButton from './pages/ContactButton';
 
 function App() {
   return (
     <Router>
       <HamburgerMenu />
+      <ContactButton />
+      
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/projects" element={<Projects />} />
-        <Route path="/contact" element={<Contact />} />
+        
         <Route path="/aboutme" element={<Aboutme />} />
         <Route path="/hireme" element={<HireMeGame />} />
       </Routes>

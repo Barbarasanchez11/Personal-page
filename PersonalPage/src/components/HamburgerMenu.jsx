@@ -9,7 +9,7 @@ const HamburgerMenu = () => {
     const [isOpen,setIsOpen] = useState(false)
     
     const links = [
-        {name: 'Contact', path: '/contact', id: crypto.randomUUID},
+        
         {name: 'Projects', path: '/projects', id: crypto.randomUUID},
         {name: 'AboutMe', path: '/aboutme', id: crypto.randomUUID},
         {name: 'HireMe', path: '/hireme', id: crypto.randomUUID},
