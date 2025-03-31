@@ -14,10 +14,12 @@
     "@emotion/styled": "^11.14.0",
     "@mui/icons-material": "^7.0.1",
     "framer-motion": "^12.5.0",
+    "lucide-react": "^0.486.0",
     "material": "^0.9.23",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.3.0",
+    "swiper": "^11.2.6",
     "ui": "^0.2.4"
   },
   "devDependencies": {

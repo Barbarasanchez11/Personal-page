@@ -2,8 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 import '../styles/Projects.css'
-import ProjectCarousel from "../components/projects/ProjectCarousel";
-import ProjectCard from "../components/projects/ProjectCard";
+import CarouselProjects from "./CarouselProjects";
 
 const projects = [
   {
@@ -31,21 +30,8 @@ const Projects= () => {
     <div className="projects-container">
       <h1 className="title">Mis Proyectos</h1>
       <div className="grid-container">
-        {projects.map((project) => (
-          <motion.div
-            key={project.id}
-            className="project-card"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
-          >
-            <Link to={project.link}>
-              <img src={project.image} alt={project.title} className="project-image" />
-              <div className="overlay">
-                <h2>{project.title}</h2>
-              </div>
-            </Link>
-          </motion.div>
-        ))}
+        
+        <CarouselProjects projects={projects} />
       </div>
     </div>
   );
