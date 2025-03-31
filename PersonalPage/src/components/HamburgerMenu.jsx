@@ -1,4 +1,7 @@
-import { use, useState } from "react"
+import { useState } from "react"
+import { Link } from "react-router-dom";
+import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
+import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 
 
 const HamburgerMenu = () => {
@@ -9,21 +12,22 @@ const HamburgerMenu = () => {
         {name: 'Contact', path: '/contact', id: crypto.randomUUID},
         {name: 'Projects', path: '/projects', id: crypto.randomUUID},
         {name: 'AboutMe', path: '/aboutme', id: crypto.randomUUID},
-        {name: 'HireMe', path: '/hireme', id: crypto.randomUUID}
+        {name: 'HireMe', path: '/hireme', id: crypto.randomUUID},
+        {name: 'Home', path: '/home', id: crypto.randomUUID}
     ]
     return (
         <nav className="hamburger-menu">
-      <button onClick={() => setIsOpen(!isOpen)} className="menu-button">
-        {isOpen ? "✖" : "☰"}
-      </button>
+      <div onClick={() => setIsOpen(!isOpen)} className="menu-button">
+        {isOpen ? <CloseOutlinedIcon /> : <MenuOutlinedIcon />}
+      </div>
 
       {isOpen && (
         <ul className="menu-list">
           {links.map((link) => (
-            <li key={link.id} className="menu-item">
-              <a href={link.path} className="menu-link">
+            <li key={link.name} className="menu-item">
+              <Link to={link.path} className="menu-link">
                 {link.name}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>
