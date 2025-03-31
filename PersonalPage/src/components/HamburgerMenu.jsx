@@ -13,7 +13,7 @@ const HamburgerMenu = () => {
         {name: 'Projects', path: '/projects', id: crypto.randomUUID},
         {name: 'AboutMe', path: '/aboutme', id: crypto.randomUUID},
         {name: 'HireMe', path: '/hireme', id: crypto.randomUUID},
-        {name: 'Home', path: '/home', id: crypto.randomUUID}
+        {name: 'Home', path: '/', id: crypto.randomUUID}
     ]
     return (
         <nav className="hamburger-menu">
