@@ -1,7 +1,9 @@
 const Contact = () => {
     return (
         <>
-        <h1>contact</h1>
+        <form>
+            
+        </form>
         </>
     )
 }
