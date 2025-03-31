@@ -1,13 +1,10 @@
-import { Link } from 'react-router-dom'
+import HamburgerMenu from "../components/HamburgerMenu"
 
 const Home = () => {
     return (
         <>
-        <Link to='/contact'>Contact</Link>
-        <Link to='/projects'>Projects</Link>
-        <Link to='/aboutme'>About me</Link>
-        <Link to='/hireme'>Hire me</Link>
-
+        
+       
         
         </>
         

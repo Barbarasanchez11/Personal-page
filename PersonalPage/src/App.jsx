@@ -4,13 +4,14 @@ import Projects from "./pages/Projects";
 import Aboutme from "./pages/Aboutme";
 import Contact from "./pages/Contact";
 import HireMeGame from './pages/HireMeGame';
-import Navbar from "./components/Navbar";
+
 import Footer from "./components/Footer";
+import HamburgerMenu from './components/HamburgerMenu';
 
 function App() {
   return (
     <Router>
-      <Navbar />
+      <HamburgerMenu />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/projects" element={<Projects />} />
