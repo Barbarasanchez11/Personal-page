@@ -1,4 +1,3 @@
-import HamburgerMenu from "../components/HamburgerMenu"
 
 const Home = () => {
     return (
@@ -7,6 +6,7 @@ const Home = () => {
        
         
         </>
+        
         
     )
 }
