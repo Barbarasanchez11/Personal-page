@@ -1,14 +1,15 @@
 import ContactButton from "../pages/ContactButton"
+import '../styles/Footer.css'
 
 
 const Footer = () => {
     return (
-        <footer>
+        <footer className="footer">
             <div className="footer-container">
 
-               <p>&copy; 2025 Tu Nombre. Todos los derechos reservados.</p>
-
                <ContactButton />
+               <p>&copy; 2025 Bárbara sánchez. Todos los derechos reservados.</p>
+
             </div>
         </footer>
     )

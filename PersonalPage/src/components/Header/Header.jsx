@@ -1,4 +1,5 @@
 import HamburgerMenu from "./HamburgerMenu";
+import '../../styles/Header.css'
 
 const Header = () => {
     return (
