@@ -1,12 +1,12 @@
 const ContactButton = () => {
     const handleEmailClick = () => {
-      window.location.href = "mailto:tuemail@example.com";
+      window.location.href = "mailto:barbarasanchezurbano.com";
     };
   
     return (
-      <button onClick={handleEmailClick} className="contact-button">
+      <div onClick={handleEmailClick} className="contact-button">
         Contact
-      </button>
+      </div>
     );
   };
   
