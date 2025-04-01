@@ -3,8 +3,9 @@
   
     height: 40px; 
     display: flex;
-    justify-content: flex-end;
-    padding: 12px;
+    align-items: center;
+    
+  width: 100vw;
     background-color: transparent;
     
   

@@ -1,4 +1,4 @@
-.hamburger-menu {
+/*.hamburger-menu {
     display: flex;
     position: relative;
    
@@ -27,4 +27,25 @@
 .menu-item  a{
     text-decoration: none;
     
+}*/
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+    position: relative;
+}
+
+.close-navbar{
+    position: absolute;
+    background-color: aqua;
+    width: 100px;
+    right: 0;
+    top: 0;
+    transform: translateX(100px);
+    transition:all 1s ease;
+    height: 100vh;
+}
+.showNavbar{
+    transform: translateX(0px)
 }

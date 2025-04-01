@@ -11,6 +11,7 @@ const HamburgerMenu = () => {
 
     const clickHandler = () => {
       setIsOpen(!isOpen)
+      console.log('entra')
     }
     
     const links = [
@@ -21,12 +22,17 @@ const HamburgerMenu = () => {
         {name: 'Home', path: '/', id: crypto.randomUUID}
     ]
     return (
-        <nav className="hamburger-menu">
-      <div onClick={clickHandler} className="menu-button">
-        {isOpen ? <CloseOutlinedIcon /> : <MenuOutlinedIcon />}
-      </div>
+      <nav className="navbar">
+        <div>
+        Logo
+        </div>
+        <div  onClick={clickHandler}>
+          <MenuOutlinedIcon  />
+        </div>
+        <div className= {!isOpen ? "close-navbar" : 'close-navbar showNavbar'} onClick={clickHandler}>
+          <CloseOutlinedIcon />
 
-      {isOpen && (
+          {isOpen && (
         <ul className="menu-list">
           {links.map((link) => (
             <li key={link.name} className="menu-item">
@@ -37,8 +43,12 @@ const HamburgerMenu = () => {
           ))}
         </ul>
       )}
-    </nav>
+        </div>
+        
 
+        
+      </nav>
+       
     )
 }
 

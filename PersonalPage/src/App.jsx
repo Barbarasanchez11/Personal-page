@@ -9,6 +9,7 @@ import HireMeGame from './pages/HireMeGame';
 
 import Footer from "./components/Footer";
 
+import './styles/App.css'
 
 function App() {
   return (
