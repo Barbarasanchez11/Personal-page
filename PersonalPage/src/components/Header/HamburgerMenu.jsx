@@ -3,10 +3,15 @@ import { Link } from "react-router-dom";
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 
+import '../../styles/HamburgerMenu.css'
 
 const HamburgerMenu = () => {
 
     const [isOpen,setIsOpen] = useState(false)
+
+    const clickHandler = () => {
+      setIsOpen(!isOpen)
+    }
     
     const links = [
         
@@ -17,7 +22,7 @@ const HamburgerMenu = () => {
     ]
     return (
         <nav className="hamburger-menu">
-      <div onClick={() => setIsOpen(!isOpen)} className="menu-button">
+      <div onClick={clickHandler} className="menu-button">
         {isOpen ? <CloseOutlinedIcon /> : <MenuOutlinedIcon />}
       </div>
 
