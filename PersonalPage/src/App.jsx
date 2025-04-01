@@ -1,22 +1,24 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Home from "./pages/Home";
+
+import Header from './components/Header/Header';
+import Hero from './components/Hero';
 import Projects from "./pages/Projects";
 import Aboutme from "./pages/Aboutme";
 
 import HireMeGame from './pages/HireMeGame';
 
 import Footer from "./components/Footer";
-import HamburgerMenu from './components/HamburgerMenu';
-import ContactButton from './pages/ContactButton';
+
 
 function App() {
   return (
     <Router>
-      <HamburgerMenu />
+      <Header />
      
       
       <Routes>
-        <Route path="/" element={<Home />} />
+
+        <Route path="/" element={<Hero />} />
         <Route path="/projects" element={<Projects />} />
         
         <Route path="/aboutme" element={<Aboutme />} />
