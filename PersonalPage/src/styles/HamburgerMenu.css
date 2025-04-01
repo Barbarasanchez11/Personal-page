@@ -34,6 +34,7 @@
     justify-content: space-between;
     width: 100vw;
     position: relative;
+    z-index: 1000;
 }
 
 .close-navbar{
@@ -48,4 +49,18 @@
 }
 .showNavbar{
     transform: translateX(0px)
+}
+
+.menu-list{
+    list-style:none;
+    
+}
+
+.menu-item{
+    margin: 10px;
+}
+
+.menu-item  a{
+    text-decoration: none;
+    
 }
