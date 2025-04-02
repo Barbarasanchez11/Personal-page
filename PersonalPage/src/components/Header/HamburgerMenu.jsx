@@ -8,10 +8,11 @@ import '../../styles/HamburgerMenu.css'
 const HamburgerMenu = () => {
 
     const [isOpen,setIsOpen] = useState(false)
+    const [isHome,setIsHome] = useState(true)
 
     const clickHandler = () => {
       setIsOpen(!isOpen)
-      console.log('entra')
+      
     }
     
     const links = [
@@ -21,6 +22,7 @@ const HamburgerMenu = () => {
         {name: 'HireMe', path: '/hireme', id: crypto.randomUUID},
         {name: 'Home', path: '/', id: crypto.randomUUID}
     ]
+    
     return (
       <nav className="navbar">
         <div>
