@@ -79,7 +79,8 @@
     justify-content: center;
     padding: 4rem 2rem;
     background-color: #ffffff;
-    overflow-y: scroll;
+    overflow-y: auto;
+    position: relative;
 }
 
 .projects-list {
@@ -130,9 +131,9 @@
     width: 400px;
     height: 500px;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
     border-radius: 8px;
-    margin-right: 60px;
+    margin-right: 80px;
 }
 
 .project-image {
@@ -140,33 +141,42 @@
     height: 100%;
     background-color: #0000ff;
     transition: transform 0.3s ease;
+    border-radius: 8px;
 }
 
 .project-number {
     position: absolute;
-    right: -60px;
-    top: 0;
-    font-size: 1.5rem;
+    right: -40px;
+    top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+    font-size: 1.8rem;
     color: #0000ff;
     font-family: 'Monument Extended', sans-serif;
+    font-weight: 600;
+    writing-mode: vertical-lr;
+    text-orientation: mixed;
 }
 
-/* Estilizar la barra de scroll */
-.projects-container::-webkit-scrollbar {
-    width: 8px;
+/* Scroll bar flotante a la derecha */
+.scroll-bar {
+    position: fixed;
+    right: 2rem;
+    top: 0;
+    height: 100vh;
+    width: 4px;
+    background: rgba(0, 0, 255, 0.1);
+    border-radius: 2px;
+    pointer-events: none;
 }
 
-.projects-container::-webkit-scrollbar-track {
-    background: #ffffff;
-}
-
-.projects-container::-webkit-scrollbar-thumb {
+.scroll-thumb {
+    position: absolute;
+    width: 100%;
+    height: 20%;
     background: #0000ff;
-    border-radius: 4px;
-}
-
-.projects-container::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 0, 255, 0.8);
+    border-radius: 2px;
+    transform: translateY(var(--scroll-y, 0));
+    transition: transform 0.1s ease;
 }
 
 @media (max-width: 1200px) {
@@ -177,6 +187,12 @@
     .project-image-container {
         width: 350px;
         height: 450px;
+        margin-right: 60px;
+    }
+
+    .project-number {
+        right: -35px;
+        font-size: 1.6rem;
     }
 }
 
@@ -203,6 +219,10 @@
     .project-number {
         right: 0;
         top: -30px;
+    }
+
+    .scroll-bar {
+        display: none;
     }
 }
 
