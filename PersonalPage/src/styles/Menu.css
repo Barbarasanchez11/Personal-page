@@ -40,12 +40,16 @@
     font-size: 4rem;
     font-weight: 600;
     line-height: 1.2;
-    transition: transform 0.3s ease;
-    display: block;
+    transition: all 0.3s ease;
+    display: inline-block;
+    -webkit-text-stroke: 0 #ffffff;
+    background-color: transparent;
 }
 
 .menu-link:hover {
-    transform: translateX(20px);
+    color: #0000ff;
+    -webkit-text-stroke: 2px #ffffff;
+    background-color: transparent;
 }
 
 .social-links {
