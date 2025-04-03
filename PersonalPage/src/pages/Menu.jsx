@@ -43,8 +43,21 @@ const Menu = () => {
             exit="exit"
         >
             <nav className="menu-navigation">
+                <motion.div 
+                    className="menu-logo"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                >
+                    BS
+                </motion.div>
+                
                 <Link to="/" className="close-button">
-                    <CloseOutlinedIcon fontSize="large" />
+                    <motion.div
+                        whileHover={{ scale: 1.1 }}
+                        whileTap={{ scale: 0.95 }}
+                    >
+                        <CloseOutlinedIcon fontSize="large" />
+                    </motion.div>
                 </Link>
             </nav>
 
