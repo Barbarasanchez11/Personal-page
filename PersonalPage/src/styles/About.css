@@ -1,0 +1,51 @@
+.about-container {
+  min-height: 200vh;
+  background-color: white;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.about-title {
+  position: fixed;
+  color: #2c3e50; /* El mismo azul del menú */
+  font-family: var(--font-family);
+  font-weight: 600;
+  line-height: 0.9;
+  margin: 0;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  font-size: 15vw;
+  will-change: transform;
+  transform-origin: left center;
+}
+
+.about-text, .me-text {
+  display: block;
+}
+
+.about-content {
+  position: relative;
+  padding-top: 100vh;
+  z-index: 1;
+}
+
+/* Media queries para hacer el componente responsive */
+@media screen and (max-width: 768px) {
+  .about-title {
+    font-size: 20vw;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .about-title {
+    font-size: 25vw;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .about-title {
+    font-size: 12vw;
+  }
+} 
