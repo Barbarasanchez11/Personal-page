@@ -1,6 +1,5 @@
 .about-container {
   min-height: 200vh;
-  background-color: white;
   position: relative;
   overflow: hidden;
   width: 100%;
@@ -8,7 +7,6 @@
 
 .about-title {
   position: fixed;
-  color: #2c3e50; /* El mismo azul del menú */
   font-family: var(--font-family);
   font-weight: 600;
   line-height: 0.9;
@@ -17,12 +15,28 @@
   display: flex;
   flex-direction: column;
   font-size: 15vw;
-  will-change: transform;
+  will-change: transform, color;
   transform-origin: left center;
 }
 
 .about-text, .me-text {
   display: block;
+}
+
+.about-description {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-family: var(--font-family);
+  font-size: 1.5rem;
+  line-height: 1.6;
+  max-width: 800px;
+  padding: 0 2rem;
+  margin: 0;
+  text-align: left;
+  will-change: transform, opacity;
 }
 
 .about-content {
@@ -36,16 +50,30 @@
   .about-title {
     font-size: 20vw;
   }
+  
+  .about-description {
+    font-size: 1.2rem;
+    padding: 0 1.5rem;
+  }
 }
 
 @media screen and (max-width: 480px) {
   .about-title {
     font-size: 25vw;
   }
+  
+  .about-description {
+    font-size: 1rem;
+    padding: 0 1rem;
+  }
 }
 
 @media screen and (min-width: 1440px) {
   .about-title {
     font-size: 12vw;
+  }
+  
+  .about-description {
+    font-size: 1.8rem;
   }
 } 
