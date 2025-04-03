@@ -1,43 +1,84 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
 import '../styles/Menu.css';
 
 const Menu = () => {
+    const navigate = useNavigate();
     const menuItems = [
         { title: 'PROJECTS', path: '/projects' },
         { title: 'ABOUT ME', path: '/aboutme' },
         { title: 'HIRE ME', path: '/hireme' }
     ];
 
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: { 
-            opacity: 1,
-            transition: { duration: 0.3 }
-        },
-        exit: { 
+    const handleClose = (e) => {
+        e.preventDefault();
+        const menuPage = document.querySelector('.menu-page');
+        menuPage.style.animation = 'slideOut 0.8s ease forwards';
+        setTimeout(() => {
+            navigate('/');
+        }, 800);
+    };
+
+    const menuVariants = {
+        hidden: {
             opacity: 0,
-            transition: { duration: 0.3 }
+            x: -100,
+            transition: {
+                duration: 0.2,
+                ease: "circOut"
+            }
+        },
+        visible: {
+            opacity: 1,
+            x: 0,
+            transition: {
+                duration: 0.25,
+                ease: "circOut",
+                staggerChildren: 0.05
+            }
+        },
+        exit: {
+            opacity: 0,
+            x: 100,
+            transition: {
+                duration: 0.4,
+                ease: [0.4, 0, 0.2, 1]
+            }
         }
     };
 
     const itemVariants = {
-        hidden: { y: 20, opacity: 0 },
-        visible: i => ({
-            y: 0,
-            opacity: 1,
+        hidden: { 
+            opacity: 0, 
+            x: -20,
             transition: {
-                delay: i * 0.1,
-                duration: 0.3
+                duration: 0.15,
+                ease: "circOut"
             }
-        })
+        },
+        visible: { 
+            opacity: 1, 
+            x: 0,
+            transition: {
+                duration: 0.2,
+                ease: "circOut"
+            }
+        },
+        exit: { 
+            opacity: 0, 
+            x: 20,
+            transition: {
+                duration: 0.3,
+                ease: [0.4, 0, 0.2, 1]
+            }
+        }
     };
 
     return (
         <motion.div 
             className="menu-page"
-            variants={containerVariants}
+            variants={menuVariants}
             initial="hidden"
             animate="visible"
             exit="exit"
@@ -51,14 +92,14 @@ const Menu = () => {
                     BS
                 </motion.div>
                 
-                <Link to="/" className="close-button">
-                    <motion.div
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.95 }}
-                    >
-                        <CloseOutlinedIcon fontSize="large" />
-                    </motion.div>
-                </Link>
+                <motion.div 
+                    className="close-button"
+                    onClick={handleClose}
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                >
+                    <CloseOutlinedIcon fontSize="large" />
+                </motion.div>
             </nav>
 
             <div className="menu-content">
