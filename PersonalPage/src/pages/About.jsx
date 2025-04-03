@@ -30,10 +30,10 @@ const About = () => {
     [0.2, 0.3],
     [0, 1]
   );
-  const descriptionX = useTransform(
+  const descriptionY = useTransform(
     scrollYProgress,
     [0.2, 0.3],
-    ["-100%", "0%"]
+    ["100vh", "0vh"]
   );
 
   return (
@@ -58,7 +58,7 @@ const About = () => {
         className="about-description"
         style={{
           opacity: descriptionOpacity,
-          x: descriptionX
+          y: descriptionY
         }}
       >
         A los 18, un curso de fotografía analógica despertó mi interés por lo audiovisual. 
