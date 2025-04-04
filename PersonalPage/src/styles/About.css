@@ -13,6 +13,8 @@
 
 .about-title {
   position: fixed;
+  top: 2rem;
+  left: 0rem;
   font-family: var(--font-family);
   font-weight: 600;
   line-height: 0.9;
@@ -144,6 +146,8 @@
 /* Media queries para hacer el componente responsive */
 @media screen and (max-width: 768px) {
   .about-title {
+    top: 1.5rem;
+    left: 0rem;
     font-size: 20vw;
   }
   
@@ -160,6 +164,8 @@
 
 @media screen and (max-width: 480px) {
   .about-title {
+    top: 1rem;
+    left: 0rem;
     font-size: 25vw;
   }
   
