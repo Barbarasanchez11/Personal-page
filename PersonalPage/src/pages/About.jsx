@@ -27,34 +27,39 @@ const About = () => {
   // Transformación para el texto descriptivo
   const descriptionOpacity = useTransform(
     scrollYProgress,
-    [0.2, 0.3, 0.35],
-    [0, 1, 0]
+    [0.15, 0.2, 0.25, 0.3],
+    [0, 1, 1, 0]
   );
   const descriptionY = useTransform(
     scrollYProgress,
-    [0.2, 0.3],
+    [0.15, 0.2],
     ["100vh", "0vh"]
   );
 
   // Transformaciones para la sección de grid
   const gridOpacity = useTransform(
     scrollYProgress,
-    [0.3, 0.35],
-    [0, 1]
+    [0.35, 0.4, 0.85, 0.9],
+    [0, 1, 1, 0]
+  );
+
+  const isGridFixed = useTransform(
+    scrollYProgress,
+    (value) => value < 0.85
   );
 
   // Transformaciones para la imagen superior derecha
   const topRightImageScale = useTransform(
     scrollYProgress,
-    [0.35, 0.4, 0.5, 0.6, 0.7],
-    [0.3, 1, 1, 1, 0.3]
+    [0.35, 0.45, 0.6, 0.75, 0.85],
+    [0.3, 0.6, 1, 0.6, 0.3]
   );
 
   // Transformaciones para la imagen inferior izquierda
   const bottomLeftImageScale = useTransform(
     scrollYProgress,
-    [0.45, 0.5, 0.6, 0.7],
-    [0.3, 1, 1, 0.3]
+    [0.45, 0.55, 0.85],
+    [0.3, 1, 1]
   );
 
   return (
@@ -93,7 +98,7 @@ const About = () => {
       {/* Sección de la cuadrícula con imágenes */}
       <section className="grid-section">
         <motion.div 
-          className="grid-content"
+          className={`grid-content ${isGridFixed.get() ? '' : 'end-animation'}`}
           style={{
             opacity: gridOpacity
           }}
@@ -120,7 +125,7 @@ const About = () => {
               scale: bottomLeftImageScale
             }}
           >
-            <img src="https://images.pexels.com/photos/1526713/pexels-photo-1526713.jpeg?cs=srgb&dl=pexels-francesco-ungaro-1526713.jpg&fm=jpg" alt="Ocean waves" />
+            <img src="https://images.pexels.com/photos/1526713/pexels-photo-1526713.jpeg" alt="Ocean waves" />
           </motion.div>
 
           <div className="grid-text">
