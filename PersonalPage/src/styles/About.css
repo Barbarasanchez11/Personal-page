@@ -1,5 +1,5 @@
 .about-container {
-  min-height: 300vh;
+  min-height: 400vh;
   position: relative;
   overflow: hidden;
   width: 100%;
@@ -49,12 +49,13 @@
 
 /* Estilos para la sección de grid */
 .grid-section {
-  height: 200vh;
+  height: 100vh;
   position: relative;
+  overflow: hidden;
+  margin-bottom: 100vh; /* Espacio para el footer */
 }
 
 .grid-content {
-  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -63,6 +64,12 @@
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
   z-index: 1;
+  will-change: transform, opacity;
+}
+
+.grid-content[style*="position: absolute"] {
+  top: auto;
+  bottom: 0;
 }
 
 .grid-lines {
@@ -111,6 +118,9 @@
   overflow: hidden;
   will-change: transform;
   transform-origin: top right;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .bottom-left-image {
@@ -120,6 +130,9 @@
   overflow: hidden;
   will-change: transform;
   transform-origin: bottom left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .top-right-image img,

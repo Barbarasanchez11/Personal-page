@@ -39,27 +39,32 @@ const About = () => {
   // Transformaciones para la sección de grid
   const gridOpacity = useTransform(
     scrollYProgress,
-    [0.35, 0.4, 0.85, 0.9],
+    [0.35, 0.4, 0.75, 0.8],
     [0, 1, 1, 0]
   );
 
-  const isGridFixed = useTransform(
+  const gridPosition = useTransform(
     scrollYProgress,
-    (value) => value < 0.85
+    (value) => {
+      if (value >= 0.75) {
+        return 'absolute';
+      }
+      return 'fixed';
+    }
   );
 
   // Transformaciones para la imagen superior derecha
   const topRightImageScale = useTransform(
     scrollYProgress,
-    [0.35, 0.45, 0.6, 0.75, 0.85],
+    [0.35, 0.45, 0.6, 0.65, 0.75],
     [0.3, 0.6, 1, 0.6, 0.3]
   );
 
   // Transformaciones para la imagen inferior izquierda
   const bottomLeftImageScale = useTransform(
     scrollYProgress,
-    [0.45, 0.55, 0.85],
-    [0.3, 1, 1]
+    [0.45, 0.55, 0.6, 0.65, 0.75],
+    [0.3, 1, 1, 0.6, 0.3]
   );
 
   return (
@@ -98,9 +103,10 @@ const About = () => {
       {/* Sección de la cuadrícula con imágenes */}
       <section className="grid-section">
         <motion.div 
-          className={`grid-content ${isGridFixed.get() ? '' : 'end-animation'}`}
+          className="grid-content"
           style={{
-            opacity: gridOpacity
+            opacity: gridOpacity,
+            position: gridPosition
           }}
         >
           <div className="grid-lines">
