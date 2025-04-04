@@ -4,12 +4,20 @@ import '../styles/About.css';
 
 const About = () => { 
   const containerRef = useRef(null);
+  const gridRef = useRef(null);
+  
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"]
   });
 
-  // Transformaciones para el scroll
+  // Scroll específico para la sección del grid
+  const { scrollYProgress: gridProgress } = useScroll({
+    target: gridRef,
+    offset: ["start end", "end start"]
+  });
+
+  // Transformaciones para el scroll inicial
   const scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.15]);
   const yPos = useTransform(scrollYProgress, [0, 0.2], ["630px", "-162px"]);
   const xPos = useTransform(scrollYProgress, [0, 0.2], ["28px", "28px"]);
@@ -36,36 +44,34 @@ const About = () => {
     ["100vh", "0vh"]
   );
 
-  // Transformaciones para la sección de grid
+  // Transformaciones para la sección de grid usando gridProgress
   const gridOpacity = useTransform(
-    scrollYProgress,
-    [0.35, 0.4, 0.75, 0.8],
+    gridProgress,
+    [0, 0.1, 0.8, 1],
     [0, 1, 1, 0]
-  );
-
-  const gridPosition = useTransform(
-    scrollYProgress,
-    (value) => {
-      if (value >= 0.75) {
-        return 'absolute';
-      }
-      return 'fixed';
-    }
   );
 
   // Transformaciones para la imagen superior derecha
   const topRightImageScale = useTransform(
-    scrollYProgress,
-    [0.35, 0.45, 0.6, 0.65, 0.75],
+    gridProgress,
+    [0.1, 0.3, 0.5, 0.7, 0.9],
     [0.3, 0.6, 1, 0.6, 0.3]
   );
 
   // Transformaciones para la imagen inferior izquierda
   const bottomLeftImageScale = useTransform(
-    scrollYProgress,
-    [0.45, 0.55, 0.6, 0.65, 0.75],
+    gridProgress,
+    [0.2, 0.4, 0.5, 0.7, 0.9],
     [0.3, 1, 1, 0.6, 0.3]
   );
+
+  // Nueva transformación para el efecto ventana
+  const { scrollYProgress: windowScrollProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"]
+  });
+
+  const windowY = useTransform(windowScrollProgress, [0, 1], ["100%", "-100%"]);
 
   return (
     <motion.div 
@@ -101,12 +107,11 @@ const About = () => {
       </section>
 
       {/* Sección de la cuadrícula con imágenes */}
-      <section className="grid-section">
+      <section ref={gridRef} className="grid-section">
         <motion.div 
           className="grid-content"
           style={{
-            opacity: gridOpacity,
-            position: gridPosition
+            opacity: gridOpacity
           }}
         >
           <div className="grid-lines">
@@ -138,6 +143,48 @@ const About = () => {
             <p>Texto que aparecerá en el centro de la cuadrícula</p>
           </div>
         </motion.div>
+      </section>
+
+      {/* Nueva sección con efecto ventana */}
+      <section className="window-reveal-section">
+        <div className="content-container">
+          <div className="text-side">
+            <h2>
+              Lorem ipsum dolor
+              sit amet, consectetur
+              adipiscing elit
+              sed do eiusmod.
+            </h2>
+            <p className="reveal-text">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+              sed do eiusmod tempor incididunt ut labore et dolore 
+              magna aliqua. Ut enim ad minim veniam, quis nostrud 
+              exercitation ullamco laboris.
+            </p>
+          </div>
+          
+          <div className="image-reveal">
+            <div className="background-image">
+              <img 
+                src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg" 
+                alt="Collaborative work"
+              />
+            </div>
+            <motion.div 
+              className="reveal-window"
+              style={{
+                y: windowY
+              }}
+            >
+              <div className="window-content">
+                <img 
+                  src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg" 
+                  alt="Revealed content"
+                />
+              </div>
+            </motion.div>
+          </div>
+        </div>
       </section>
     </motion.div>
   );
