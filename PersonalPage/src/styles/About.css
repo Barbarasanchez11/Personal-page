@@ -108,6 +108,7 @@
   position: relative;
   overflow: hidden;
   will-change: transform;
+  transform-origin: top right;
 }
 
 .bottom-left-image {
@@ -116,6 +117,7 @@
   position: relative;
   overflow: hidden;
   will-change: transform;
+  transform-origin: bottom left;
 }
 
 .top-right-image img,
