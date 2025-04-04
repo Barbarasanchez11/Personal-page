@@ -215,7 +215,7 @@
   width: 100%;
   position: relative;
   overflow: hidden;
-  background-color: #0a0a0a;
+  background-color: rgb(8, 3, 255); /* Color azul del diseño */
 }
 
 .window-reveal-section .content-container {
@@ -240,12 +240,14 @@
   line-height: 1.2;
   margin-bottom: 2rem;
   font-weight: 500;
+  color: white;
 }
 
 .window-reveal-section .reveal-text {
   font-size: 1.2rem;
   line-height: 1.6;
   opacity: 0.8;
+  color: white;
 }
 
 .window-reveal-section .image-reveal {
@@ -255,7 +257,6 @@
   overflow: hidden;
 }
 
-.window-reveal-section .final-background-image,
 .window-reveal-section .background-image {
   position: absolute;
   width: 100%;
@@ -264,12 +265,10 @@
   right: 0;
 }
 
-.window-reveal-section .final-background-image {
-  z-index: 1;
-}
-
-.window-reveal-section .background-image {
-  z-index: 2;
+.window-reveal-section .background-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .window-reveal-section .reveal-window {
@@ -277,8 +276,8 @@
   width: 100%;
   height: 200vh;
   top: -50vh;
-  background-color: #0a0a0a;
-  z-index: 3;
+  background-color: rgb(8, 3, 255); /* Color azul del diseño */
+  z-index: 2;
 }
 
 .window-reveal-section .window-content {
@@ -287,7 +286,7 @@
   position: relative;
 }
 
-.window-reveal-section img {
+.window-reveal-section .window-content img {
   width: 100%;
   height: 100%;
   object-fit: cover;

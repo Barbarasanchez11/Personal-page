@@ -174,31 +174,15 @@ const About = () => {
           </div>
           
           <div className="image-reveal">
-            <motion.div 
-              className="final-background-image"
-              style={{
-                opacity: backgroundOpacity
-              }}
-            >
+            {/* Imagen de fondo fija */}
+            <div className="background-image">
               <img 
                 src="https://blog.foto24.com/wp-content/uploads/2019/02/4-684x1024.jpg" 
-                alt="Final background"
+                alt="Background"
               />
-            </motion.div>
-            <motion.div 
-              className="background-image"
-              style={{
-                opacity: useTransform(windowScrollProgress, 
-                  [0.6, 0.8], 
-                  [1, 0]
-                )
-              }}
-            >
-              <img 
-                src="https://images.pexels.com/photos/433989/pexels-photo-433989.jpeg" 
-                alt="Initial background"
-              />
-            </motion.div>
+            </div>
+            
+            {/* Ventana con efecto de revelado */}
             <motion.div 
               className="reveal-window"
               style={{
