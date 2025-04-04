@@ -211,7 +211,7 @@
 
 /* Estilos para la sección de ventana reveladora */
 .window-reveal-section {
-  min-height: 100vh;
+  min-height: 200vh;
   width: 100%;
   position: relative;
   overflow: hidden;
@@ -225,7 +225,6 @@
   position: sticky;
   top: 0;
   left: 0;
-  z-index: 2; /* Aseguramos que esté por encima del grid */
 }
 
 .window-reveal-section .text-side {
@@ -256,6 +255,7 @@
   overflow: hidden;
 }
 
+.window-reveal-section .final-background-image,
 .window-reveal-section .background-image {
   position: absolute;
   width: 100%;
@@ -264,26 +264,30 @@
   right: 0;
 }
 
-.window-reveal-section .background-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.window-reveal-section .final-background-image {
+  z-index: 1;
+}
+
+.window-reveal-section .background-image {
+  z-index: 2;
 }
 
 .window-reveal-section .reveal-window {
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 200vh;
+  top: -50vh;
   background-color: #0a0a0a;
+  z-index: 3;
 }
 
 .window-reveal-section .window-content {
   width: 100%;
-  height: 100%;
+  height: 200vh;
   position: relative;
 }
 
-.window-reveal-section .window-content img {
+.window-reveal-section img {
   width: 100%;
   height: 100%;
   object-fit: cover;

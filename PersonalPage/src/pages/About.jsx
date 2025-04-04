@@ -65,13 +65,23 @@ const About = () => {
     [0.3, 1, 1, 0.6, 0.3]
   );
 
-  // Nueva transformación para el efecto ventana
+  // Transformaciones para el efecto ventana y fondo
   const { scrollYProgress: windowScrollProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"]
   });
 
-  const windowY = useTransform(windowScrollProgress, [0, 1], ["100%", "-100%"]);
+  // La ventana se mueve desde el inicio hasta el 60% del scroll
+  const windowY = useTransform(windowScrollProgress, 
+    [0, 0.3, 0.6, 0.8], 
+    ["100%", "50%", "0%", "-100%"]
+  );
+
+  // La opacidad de la imagen de fondo empieza a aparecer cuando la ventana está completamente abierta
+  const backgroundOpacity = useTransform(windowScrollProgress, 
+    [0.6, 0.7, 0.8, 0.9], 
+    [0, 0.3, 0.7, 1]
+  );
 
   return (
     <motion.div 
@@ -164,12 +174,31 @@ const About = () => {
           </div>
           
           <div className="image-reveal">
-            <div className="background-image">
+            <motion.div 
+              className="final-background-image"
+              style={{
+                opacity: backgroundOpacity
+              }}
+            >
               <img 
-                src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg" 
-                alt="Collaborative work"
+                src="https://blog.foto24.com/wp-content/uploads/2019/02/4-684x1024.jpg" 
+                alt="Final background"
               />
-            </div>
+            </motion.div>
+            <motion.div 
+              className="background-image"
+              style={{
+                opacity: useTransform(windowScrollProgress, 
+                  [0.6, 0.8], 
+                  [1, 0]
+                )
+              }}
+            >
+              <img 
+                src="https://images.pexels.com/photos/433989/pexels-photo-433989.jpeg" 
+                alt="Initial background"
+              />
+            </motion.div>
             <motion.div 
               className="reveal-window"
               style={{
@@ -178,7 +207,7 @@ const About = () => {
             >
               <div className="window-content">
                 <img 
-                  src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg" 
+                  src="https://images.pexels.com/photos/433989/pexels-photo-433989.jpeg" 
                   alt="Revealed content"
                 />
               </div>
