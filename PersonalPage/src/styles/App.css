@@ -26,8 +26,8 @@ footer, header, hgroup, menu, nav, section {
 body {
 	line-height: 1;
 	overflow-x: hidden;
-	position: relative;
-	padding-top: 60px; /* Ajusta este valor según la altura de tu navbar */
+	
+	
 	height: 100%;
 }
 ol, ul {
@@ -78,7 +78,7 @@ html {
 
 body {
 	overflow-x: hidden;
-	position: relative;
+	
 }
 
 .app {

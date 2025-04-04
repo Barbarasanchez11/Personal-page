@@ -2,7 +2,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import '../styles/About.css';
 
-const About = () => {
+const About = () => { 
   const containerRef = useRef(null);
   const { scrollYProgress } = useScroll({
     target: containerRef,
