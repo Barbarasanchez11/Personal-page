@@ -104,19 +104,10 @@ const Menu = () => {
 
             <div className="menu-content">
                 <div className="menu-items">
-                    {menuItems.map((item, i) => (
-                        <motion.div
-                            key={item.title}
-                            custom={i}
-                            variants={itemVariants}
-                            initial="hidden"
-                            animate="visible"
-                        >
-                            <Link to={item.path} className="menu-link">
-                                {item.title}
-                            </Link>
-                        </motion.div>
-                    ))}
+                    <Link to="/" className="menu-link">Home</Link>
+                    <Link to="/projects" className="menu-link">Projects</Link>
+                    <Link to="/aboutme" className="menu-link">About me</Link>
+                    <Link to="/contact" className="menu-link">Contact</Link>
                 </div>
             </div>
         </motion.div>

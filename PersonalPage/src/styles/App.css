@@ -25,6 +25,10 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	overflow-x: hidden;
+	position: relative;
+	padding-top: 60px; /* Ajusta este valor según la altura de tu navbar */
+	height: 100%;
 }
 ol, ul {
 	list-style: none;
@@ -40,4 +44,53 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+
+/* Personalización del scrollbar */
+::-webkit-scrollbar {
+	width: 4px;
+	height: 4px;
+	position: fixed;
+	right: 0;
+	z-index: 1000;
+}
+
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+	background: #2c3e50;
+	border-radius: 2px;
+	transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background: #34495e;
+}
+
+/* Aseguramos que el scrollbar esté siempre visible pero sutil */
+html {
+	scrollbar-width: thin;
+	scrollbar-color: #2c3e50 transparent;
+	overflow-y: overlay;
+}
+
+body {
+	overflow-x: hidden;
+	position: relative;
+}
+
+.app {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+
+main {
+	flex: 1;
+	position: relative;
+	overflow: hidden;
+	z-index: 1;
 }
