@@ -2,6 +2,84 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import '../styles/About.css';
 
+const ProjectItem = ({ title, description, services, image, index }) => {
+  const { scrollYProgress } = useScroll();
+  const x = useTransform(scrollYProgress, 
+    [0.6 + (index * 0.08), 0.75 + (index * 0.08)], 
+    ["100%", "0%"]
+  );
+
+  return (
+    <motion.div 
+      className="project-item"
+      style={{ 
+        x,
+        top: `${index * 20}vh`
+      }}
+    >
+      <div className="project-title">
+        <h2>{title}</h2>
+        <p>{description}</p>
+      </div>
+
+      <div className="project-image">
+        <img src={image} alt={title} />
+      </div>
+
+      <div className="project-services">
+        <ul>
+          {services.map((service, i) => (
+            <li key={i}>{service}</li>
+          ))}
+        </ul>
+      </div>
+    </motion.div>
+  );
+};
+
+const projects = [
+  {
+    title: "Brand transformation",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3",
+    services: [
+      "Brand identity",
+      "Brand guidelines",
+      "Brand strategy"
+    ]
+  },
+  {
+    title: "Digital evolution",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3",
+    services: [
+      "Web design",
+      "Web development",
+      "Audience centric strategy"
+    ]
+  },
+  {
+    title: "Visibility optimization",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    image: "https://images.unsplash.com/photo-1542744094-3a31f272c490?ixlib=rb-4.0.3",
+    services: [
+      "Keyword research",
+      "Content structure optimization",
+      "Blog development"
+    ]
+  },
+  {
+    title: "Content creation",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3",
+    services: [
+      "Visual design",
+      "Content strategy",
+      "Social media"
+    ]
+  }
+];
+
 const About = () => { 
   const containerRef = useRef(null);
   const gridRef = useRef(null);
@@ -197,6 +275,18 @@ const About = () => {
               </div>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      <section className="projects-section">
+        <div className="projects-container">
+          {projects.map((project, index) => (
+            <ProjectItem 
+              key={index}
+              {...project}
+              index={index}
+            />
+          ))}
         </div>
       </section>
     </motion.div>
