@@ -53,7 +53,6 @@
   min-height: 100vh;
   position: relative;
   overflow: hidden;
-  padding: 100vh 0;
 }
 
 .grid-content {
@@ -211,11 +210,11 @@
 
 /* Estilos para la sección de ventana reveladora */
 .window-reveal-section {
-  min-height: 200vh;
+  min-height: 100vh;
   width: 100%;
   position: relative;
   overflow: hidden;
-  background-color: rgb(8, 3, 255); /* Color azul del diseño */
+  background-color: rgb(8, 3, 255);
 }
 
 .window-reveal-section .content-container {
