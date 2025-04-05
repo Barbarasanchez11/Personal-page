@@ -61,75 +61,68 @@ const About = () => {
     offset: ["start start", "end start"]
   });
 
-  // Scroll específico para la sección del grid
-  const { scrollYProgress: gridProgress } = useScroll({
-    target: gridRef,
-    offset: ["start end", "end start"]
-  });
-
-  // Transformaciones para el scroll inicial
+  // Título "About me"
   const scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.15]);
   const yPos = useTransform(scrollYProgress, [0, 0.2], ["630px", "-162px"]);
   const xPos = useTransform(scrollYProgress, [0, 0.2], ["28px", "28px"]);
+  
   const backgroundColor = useTransform(
     scrollYProgress,
     [0, 0.1, 0.2],
     ["#ffffff", "#ffffff", "rgb(8, 3, 255)"]
   );
+
   const textColor = useTransform(
     scrollYProgress,
     [0, 0.1, 0.2],
     ["rgb(8, 3, 255)", "rgb(8, 3, 255)", "#ffffff"]
   );
   
-  // Transformación para el texto descriptivo
+  // Texto descriptivo
   const descriptionOpacity = useTransform(
     scrollYProgress,
-    [0.15, 0.2, 0.25, 0.3],
+    [0.15, 0.18, 0.2, 0.22],
     [0, 1, 1, 0]
   );
+
   const descriptionY = useTransform(
     scrollYProgress,
-    [0.15, 0.2],
-    ["100vh", "0vh"]
+    [0.15, 0.18, 0.2, 0.22],
+    ["100vh", "0vh", "0vh", "-50vh"]
   );
 
-  // Transformaciones para la sección de grid usando gridProgress
+  // Grid section - ajustado para aparecer antes y tener más espacio
   const gridOpacity = useTransform(
-    gridProgress,
-    [0, 0.1, 0.8, 1],
-    [0, 1, 1, 0]
+    scrollYProgress,
+    [0.22, 0.25],
+    [0, 1]
   );
 
-  // Transformaciones para la imagen superior derecha
   const topRightImageScale = useTransform(
-    gridProgress,
-    [0.1, 0.3, 0.5, 0.7, 0.9],
-    [0.3, 0.6, 1, 0.6, 0.3]
+    scrollYProgress,
+    [0.25, 0.3, 0.35],
+    [0.3, 0.6, 1]
   );
 
-  // Transformaciones para la imagen inferior izquierda
   const bottomLeftImageScale = useTransform(
-    gridProgress,
-    [0.2, 0.4, 0.5, 0.7, 0.9],
-    [0.3, 1, 1, 0.6, 0.3]
+    scrollYProgress,
+    [0.25, 0.3, 0.35],
+    [0.3, 1, 1]
   );
 
-  // Transformaciones para el efecto ventana y fondo
+  // Window section (retrasado significativamente)
   const { scrollYProgress: windowScrollProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"]
   });
 
-  // La ventana se mueve desde el inicio hasta el 60% del scroll
   const windowY = useTransform(windowScrollProgress, 
-    [0, 0.3, 0.6, 0.8], 
+    [0.95, 0.97, 0.98, 1], 
     ["100%", "50%", "0%", "-100%"]
   );
 
-  // La opacidad de la imagen de fondo empieza a aparecer cuando la ventana está completamente abierta
   const backgroundOpacity = useTransform(windowScrollProgress, 
-    [0.6, 0.7, 0.8, 0.9], 
+    [0.85, 0.9, 0.95, 1], 
     [0, 0.3, 0.7, 1]
   );
 
@@ -139,7 +132,6 @@ const About = () => {
       className="about-container"
       style={{ backgroundColor }}
     >
-      {/* Sección del título y descripción inicial */}
       <section className="intro-section">
         <motion.div 
           className="about-title"
@@ -166,7 +158,6 @@ const About = () => {
         </motion.p>
       </section>
 
-      {/* Sección de la cuadrícula con imágenes */}
       <section ref={gridRef} className="grid-section">
         <motion.div 
           className="grid-content"
