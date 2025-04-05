@@ -2,7 +2,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import '../styles/About.css';
 
-const ProjectItem = ({ title, description, services, image, index }) => {
+const ProjectItem = ({ title, image, index }) => {
   const { scrollYProgress } = useScroll();
   const x = useTransform(scrollYProgress, 
     [0.6 + (index * 0.08), 0.75 + (index * 0.08)], 
@@ -17,21 +17,17 @@ const ProjectItem = ({ title, description, services, image, index }) => {
         top: `${index * 20}vh`
       }}
     >
-      <div className="project-title">
+      <div className="project-left-text">
         <h2>{title}</h2>
-        <p>{description}</p>
+        <p>Lorem ipsum dolor sit amet</p>
       </div>
 
-      <div className="project-image">
+      <div className="project-image-container">
         <img src={image} alt={title} />
       </div>
 
-      <div className="project-services">
-        <ul>
-          {services.map((service, i) => (
-            <li key={i}>{service}</li>
-          ))}
-        </ul>
+      <div className="project-right-text">
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
       </div>
     </motion.div>
   );
@@ -40,43 +36,19 @@ const ProjectItem = ({ title, description, services, image, index }) => {
 const projects = [
   {
     title: "Brand transformation",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3",
-    services: [
-      "Brand identity",
-      "Brand guidelines",
-      "Brand strategy"
-    ]
+    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3"
   },
   {
     title: "Digital evolution",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3",
-    services: [
-      "Web design",
-      "Web development",
-      "Audience centric strategy"
-    ]
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3"
   },
   {
     title: "Visibility optimization",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    image: "https://images.unsplash.com/photo-1542744094-3a31f272c490?ixlib=rb-4.0.3",
-    services: [
-      "Keyword research",
-      "Content structure optimization",
-      "Blog development"
-    ]
+    image: "https://images.unsplash.com/photo-1542744094-3a31f272c490?ixlib=rb-4.0.3"
   },
   {
     title: "Content creation",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3",
-    services: [
-      "Visual design",
-      "Content strategy",
-      "Social media"
-    ]
+    image: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-4.0.3"
   }
 ];
 
@@ -283,7 +255,8 @@ const About = () => {
           {projects.map((project, index) => (
             <ProjectItem 
               key={index}
-              {...project}
+              title={project.title}
+              image={project.image}
               index={index}
             />
           ))}
