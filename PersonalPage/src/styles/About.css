@@ -343,6 +343,24 @@
   color: #0000ff;
 }
 
+.project-left-text h2, .project-right-text h2 {
+  font-size: 2rem;
+  font-weight: 400;
+  margin: 0;
+  line-height: 1.1;
+  color: #0000ff;
+  padding: 1rem; 
+}
+
+.project-left-text p, .project-right-text p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  margin-top: 0.5rem;
+  color: #0000ff;
+  padding: 1rem;
+}
+
+
 .project-image-container {
   height: 100%;
   display: flex;
