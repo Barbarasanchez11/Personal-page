@@ -1,3 +1,36 @@
 .main-hero{
-    height: calc(100vh - 20px);
+    height: calc(100vh - 80px);
+}
+
+.section-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    max-width: 1600px;
+    width: 100%;
+    
+}
+
+.section-hero h1{
+    
+    font-size: 16px;
+}
+
+.article-hero{
+    display: flex;
+    width: 100%
+}
+
+.container-hero{
+    width: 100%;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.container-hero p {
+  font-size: 16px;
 }
