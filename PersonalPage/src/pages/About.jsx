@@ -110,20 +110,16 @@ const About = () => {
     [0.3, 1, 1]
   );
 
-  // Window section (retrasado significativamente)
+  // Transformaciones para el efecto ventana y fondo
   const { scrollYProgress: windowScrollProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"]
   });
 
+  // La ventana se mueve desde el inicio hasta el 60% del scroll
   const windowY = useTransform(windowScrollProgress, 
-    [0.95, 0.97, 0.98, 1], 
+    [0, 0.3, 0.6, 0.8], 
     ["100%", "50%", "0%", "-100%"]
-  );
-
-  const backgroundOpacity = useTransform(windowScrollProgress, 
-    [0.85, 0.9, 0.95, 1], 
-    [0, 0.3, 0.7, 1]
   );
 
   return (

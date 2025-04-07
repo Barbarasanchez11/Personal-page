@@ -210,85 +210,69 @@
 
 /* Estilos para la sección de ventana reveladora */
 .window-reveal-section {
-  min-height: 100vh;
-  width: 100%;
   position: relative;
-  overflow: hidden;
-  background-color: rgb(8, 3, 255);
-}
-
-.window-reveal-section .content-container {
-  display: flex;
-  width: 100%;
   height: 100vh;
-  position: sticky;
-  top: 0;
-  left: 0;
+  width: 100%;
+  overflow: hidden;
 }
 
-.window-reveal-section .text-side {
-  width: 50%;
-  padding: 4rem;
+.content-container {
+  display: flex;
+  height: 100%;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.text-side {
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
-}
-
-.window-reveal-section .text-side h2 {
-  font-size: 4rem;
-  line-height: 1.2;
-  margin-bottom: 2rem;
-  font-weight: 500;
   color: white;
 }
 
-.window-reveal-section .reveal-text {
+.text-side h2 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  line-height: 1.2;
+}
+
+.reveal-text {
   font-size: 1.2rem;
   line-height: 1.6;
-  opacity: 0.8;
-  color: white;
 }
 
-.window-reveal-section .image-reveal {
-  width: 50%;
-  height: 100vh;
+.image-reveal {
+  flex: 1;
   position: relative;
+  height: 100%;
   overflow: hidden;
 }
 
-.window-reveal-section .background-image {
+.background-image,
+.reveal-window {
   position: absolute;
-  width: 100%;
-  height: 100%;
   top: 0;
-  right: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
-.window-reveal-section .background-image img {
+.background-image img,
+.window-content img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.window-reveal-section .reveal-window {
-  position: absolute;
-  width: 100%;
-  height: 200vh;
-  top: -50vh;
-  background-color: rgb(8, 3, 255); /* Color azul del diseño */
-  z-index: 2;
+.reveal-window {
+  overflow: hidden;
 }
 
-.window-reveal-section .window-content {
+.window-content {
   width: 100%;
-  height: 200vh;
+  height: 100%;
   position: relative;
-}
-
-.window-reveal-section .window-content img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 @media (max-width: 768px) {
@@ -410,4 +394,8 @@
 .project-services li::before {
   content: "::";
   margin-right: 0.5rem;
+}
+
+.about-page {
+  background-color: rgb(0, 0, 255);
 } 
