@@ -11,11 +11,8 @@ const ProjectItem = ({ title, image, index }) => {
 
   return (
     <motion.div 
-      className="project-item"
-      style={{ 
-        x,
-        top: `${index * 20}vh`
-      }}
+      className={`project-item project-item-${index}`}
+      style={{ x }}
     >
       <div className="project-left-text">
         <h2>{title}</h2>
@@ -61,7 +58,6 @@ const About = () => {
     offset: ["start start", "end start"]
   });
 
-  // Título "About me"
   const scale = useTransform(scrollYProgress, [0, 0.2], [1, 0.15]);
   const yPos = useTransform(scrollYProgress, [0, 0.2], ["630px", "-162px"]);
   const xPos = useTransform(scrollYProgress, [0, 0.2], ["28px", "28px"]);
@@ -78,7 +74,6 @@ const About = () => {
     ["rgb(8, 3, 255)", "rgb(8, 3, 255)", "#ffffff"]
   );
   
-  // Texto descriptivo
   const descriptionOpacity = useTransform(
     scrollYProgress,
     [0.15, 0.18, 0.2, 0.22],
@@ -91,7 +86,6 @@ const About = () => {
     ["100vh", "0vh", "0vh", "-50vh"]
   );
 
-  // Grid section - ajustado para aparecer antes y tener más espacio
   const gridOpacity = useTransform(
     scrollYProgress,
     [0.22, 0.25],
@@ -110,13 +104,11 @@ const About = () => {
     [0.3, 1, 1]
   );
 
-  // Transformaciones para el efecto ventana y fondo
   const { scrollYProgress: windowScrollProgress } = useScroll({
     target: containerRef,
     offset: ["start end", "end start"]
   });
 
-  // La ventana se mueve desde el inicio hasta el 60% del scroll
   const windowY = useTransform(windowScrollProgress, 
     [0, 0.3, 0.6, 0.8], 
     ["100%", "50%", "0%", "-100%"]
@@ -131,22 +123,14 @@ const About = () => {
       <section className="intro-section">
         <motion.div 
           className="about-title"
-          style={{ 
-            scale,
-            x: xPos,
-            y: yPos,
-            color: textColor
-          }}
+          style={{ scale, x: xPos, y: yPos, color: textColor }}
         >
           <span className="about-text">About</span>
           <span className="me-text">me</span>
         </motion.div>
         <motion.p 
           className="about-description"
-          style={{
-            opacity: descriptionOpacity,
-            y: descriptionY
-          }}
+          style={{ opacity: descriptionOpacity, y: descriptionY }}
         >
           A los 18, un curso de fotografía analógica despertó mi interés por lo audiovisual. 
           Estudié Producción de Audiovisuales y trabajé como técnico de teatro mientras 
@@ -155,12 +139,7 @@ const About = () => {
       </section>
 
       <section ref={gridRef} className="grid-section">
-        <motion.div 
-          className="grid-content"
-          style={{
-            opacity: gridOpacity
-          }}
-        >
+        <motion.div className="grid-content" style={{ opacity: gridOpacity }}>
           <div className="grid-lines">
             <div className="vertical-line"></div>
             <div className="vertical-line"></div>
@@ -168,21 +147,11 @@ const About = () => {
             <div className="horizontal-line"></div>
           </div>
 
-          <motion.div 
-            className="top-right-image"
-            style={{
-              scale: topRightImageScale
-            }}
-          >
+          <motion.div className="top-right-image" style={{ scale: topRightImageScale }}>
             <img src="https://cdn.pixabay.com/photo/2024/04/10/22/52/autumn-8688876_1280.jpg" alt="Autumn landscape" />
           </motion.div>
 
-          <motion.div 
-            className="bottom-left-image"
-            style={{
-              scale: bottomLeftImageScale
-            }}
-          >
+          <motion.div className="bottom-left-image" style={{ scale: bottomLeftImageScale }}>
             <img src="https://images.pexels.com/photos/1526713/pexels-photo-1526713.jpeg" alt="Ocean waves" />
           </motion.div>
 
@@ -192,16 +161,10 @@ const About = () => {
         </motion.div>
       </section>
 
-      {/* Nueva sección con efecto ventana */}
       <section className="window-reveal-section">
         <div className="content-container">
           <div className="text-side">
-            <h2>
-              Lorem ipsum dolor
-              sit amet, consectetur
-              adipiscing elit
-              sed do eiusmod.
-            </h2>
+            <h2>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.</h2>
             <p className="reveal-text">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
               sed do eiusmod tempor incididunt ut labore et dolore 
@@ -211,26 +174,12 @@ const About = () => {
           </div>
           
           <div className="image-reveal">
-            {/* Imagen de fondo fija */}
             <div className="background-image">
-              <img 
-                src="https://blog.foto24.com/wp-content/uploads/2019/02/4-684x1024.jpg" 
-                alt="Background"
-              />
+              <img src="https://blog.foto24.com/wp-content/uploads/2019/02/4-684x1024.jpg" alt="Background" />
             </div>
-            
-            {/* Ventana con efecto de revelado */}
-            <motion.div 
-              className="reveal-window"
-              style={{
-                y: windowY
-              }}
-            >
+            <motion.div className="reveal-window" style={{ y: windowY }}>
               <div className="window-content">
-                <img 
-                  src="https://images.pexels.com/photos/433989/pexels-photo-433989.jpeg" 
-                  alt="Revealed content"
-                />
+                <img src="https://images.pexels.com/photos/433989/pexels-photo-433989.jpeg" alt="Revealed content" />
               </div>
             </motion.div>
           </div>
@@ -253,4 +202,4 @@ const About = () => {
   );
 };
 
-export default About; 
+export default About;

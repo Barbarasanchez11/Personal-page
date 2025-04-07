@@ -399,3 +399,9 @@
 .about-page {
   background-color: rgb(0, 0, 255);
 } 
+
+/* Posicionamiento individual de cada project-item según su índice */
+.project-item-0 { top: 0vh; }
+.project-item-1 { top: 20vh; }
+.project-item-2 { top: 40vh; }
+.project-item-3 { top: 60vh; }
