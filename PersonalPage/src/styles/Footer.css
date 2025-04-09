@@ -1,8 +1,19 @@
 .footer {
-    height: 60px;
-    padding: 20px;
-    position: relative;
-    z-index: 1;
+    background-color: #0000ff;
+    padding: 1rem;
+    color: white;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .footer {
+        padding: 0.8rem;
+    }
 }
 
 .footer-container {

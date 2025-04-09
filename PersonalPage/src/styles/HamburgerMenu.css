@@ -1,224 +1,159 @@
-
-
+/* Navbar base */
 .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    padding: 0 2rem;
     z-index: 1000;
-    background: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    box-sizing: border-box;
-    padding:20px
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
+/* Logo */
 .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #333;
-    cursor: pointer;
-    margin-left: 0.2rem;
+    font-family: 'Monument Extended', sans-serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #fff;
+    mix-blend-mode: difference;
 }
 
-.menu-icon {
+/* Hamburger button */
+.hamburger-button {
+    width: 2rem;
+    height: 2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0.4rem;
+    background: transparent;
+    border: none;
     cursor: pointer;
     z-index: 1001;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: #f5f5f5;
-    transition: background-color 0.3s ease;
-    margin-right: 0.2rem;
 }
 
-.menu-icon:hover {
-    background: #e0e0e0;
+.hamburger-line {
+    width: 100%;
+    height: 1.5px;
+    background-color: #fff;
+    transform-origin: center;
+    mix-blend-mode: difference;
 }
 
-.menu-icon svg {
-    font-size: 24px;
-    color: #333;
-}
-
-.menu-overlay {
+/* Menu overlay */
+.menu-container {
     position: fixed;
     top: 0;
-    right: 0;
+    left: 0;
     width: 100%;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(5px);
-    z-index: 999;
-}
-
-.menu-content {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 300px;
-    height: 100vh;
-    background: white;
-    padding: 2rem;
-    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-}
-
-.menu-header {
+    background: #000;
     display: flex;
-    justify-content: flex-end;
-    margin-bottom: 2rem;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
 }
 
-.menu-header svg {
-    cursor: pointer;
-    font-size: 1.5rem;
-    color: #333;
-    padding: 8px;
-    border-radius: 50%;
-    transition: background-color 0.3s ease;
+/* Menu content */
+.menu-content {
+    width: 100%;
+    max-width: 1200px;
+    padding: 2rem;
 }
 
-.menu-header svg:hover {
-    background-color: #f5f5f5;
-}
-
-.menu-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.menu-item {
-    margin: 1rem 0;
+.menu-links {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    text-align: center;
 }
 
 .menu-link {
+    font-family: 'Monument Extended', sans-serif;
+    font-size: 3.5rem;
+    color: #fff;
     text-decoration: none;
-    color: #333;
-    font-size: 1.2rem;
-    font-weight: 500;
-    display: block;
-    padding: 0.8rem 1rem;
-    border-radius: 8px;
-    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    padding: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.menu-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 1px;
+    background-color: #fff;
+    transition: width 0.3s ease;
 }
 
 .menu-link:hover {
-    color: #007bff;
-    background-color: #f5f5f5;
+    color: rgba(255, 255, 255, 0.7);
 }
 
-/* Tablets y dispositivos medianos */
+.menu-link:hover::after {
+    width: 100%;
+}
+
+/* Responsive design */
 @media (max-width: 1024px) {
-    .navbar {
-        padding: 1rem 0.8rem;
-    }
-    
-    .logo {
-        margin-left: 0.1rem;
-    }
-    
-    .menu-icon {
-        margin-right: 0.1rem;
-    }
-    
-    .menu-content {
-        width: 280px;
-    }
-    
     .menu-link {
-        font-size: 1.1rem;
+        font-size: 3rem;
     }
 }
 
-/* Tablets pequeñas y móviles grandes */
 @media (max-width: 768px) {
     .navbar {
-        padding: 0.8rem 0.6rem;
+        height: 3.5rem;
+        padding: 0 1.5rem;
     }
-    
+
     .logo {
-        font-size: 1.3rem;
-        margin-left: 0;
+        font-size: 1.125rem;
     }
-    
-    .menu-icon {
-        width: 35px;
-        height: 35px;
-        margin-right: 0;
+
+    .hamburger-button {
+        width: 1.75rem;
+        height: 1.75rem;
+        padding: 0.35rem;
     }
-    
-    .menu-icon svg {
-        font-size: 20px;
-    }
-    
-    .menu-content {
-        width: 250px;
-        padding: 1.5rem;
-    }
-    
+
     .menu-link {
-        font-size: 1rem;
-        padding: 0.6rem 0.8rem;
+        font-size: 2.5rem;
     }
 }
 
-/* Móviles */
 @media (max-width: 480px) {
     .navbar {
-        padding: 0.8rem 0.5rem;
+        height: 3rem;
+        padding: 0 1rem;
     }
-    
-    .logo {
-        font-size: 1.2rem;
-        margin-left: 0;
-    }
-    
-    .menu-icon {
-        width: 32px;
-        height: 32px;
-        margin-right: 0;
-    }
-    
-    .menu-content {
-        width: 100%;
-        padding: 1.2rem;
-    }
-    
-    .menu-header {
-        margin-bottom: 1.5rem;
-    }
-    
-    .menu-item {
-        margin: 0.8rem 0;
-    }
-    
-    .menu-link {
-        font-size: 0.95rem;
-        padding: 0.5rem 0.7rem;
-    }
-}
 
-/* Móviles muy pequeños */
-@media (max-width: 320px) {
-    .navbar {
-        padding: 0.6rem 0.4rem;
-    }
-    
     .logo {
-        font-size: 1.1rem;
-        margin-left: 0;
+        font-size: 1rem;
     }
-    
-    .menu-icon {
-        width: 30px;
-        height: 30px;
-        margin-right: 0;
+
+    .hamburger-button {
+        width: 1.5rem;
+        height: 1.5rem;
+        padding: 0.3rem;
     }
-    
-    .menu-icon svg {
-        font-size: 18px;
+
+    .menu-links {
+        gap: 1.5rem;
     }
-}
+
+    .menu-link {
+        font-size: 2rem;
+    }
+} 

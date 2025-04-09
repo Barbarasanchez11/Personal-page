@@ -1,18 +1,13 @@
-import ContactButton from "../pages/ContactButton"
-import '../styles/Footer.css'
-
+import '../styles/Footer.css';
 
 const Footer = () => {
     return (
         <footer className="footer">
-            <div className="footer-container">
-
-               <ContactButton />
-               <p>&copy; 2025 Bárbara sánchez. Todos los derechos reservados.</p>
-
+            <div className="footer-content">
+                <p>&copy; 2024 BS Portfolio. All rights reserved.</p>
             </div>
         </footer>
-    )
-}
+    );
+};
 
-export default Footer
+export default Footer; 
