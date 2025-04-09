@@ -1,6 +1,15 @@
 .header {
-    background-color: #0000ff;
-    padding: 1rem 2rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    background: var(--gradient-bg);
+    backdrop-filter: blur(8px);
 }
 
 .nav {
@@ -12,10 +21,16 @@
 }
 
 .logo {
-    color: white;
-    text-decoration: none;
     font-size: 1.5rem;
     font-weight: bold;
+    color: var(--text-color);
+    text-decoration: none;
+    z-index: 1000;
+    transition: color 0.3s var(--transition-timing);
+}
+
+.logo:hover {
+    color: var(--accent-color);
 }
 
 .nav-links {

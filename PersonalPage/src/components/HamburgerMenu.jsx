@@ -1,11 +1,8 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import MenuIcon from '@mui/icons-material/Menu';
-import CloseIcon from '@mui/icons-material/Close';
-import '../styles/Header.css';
 import '../styles/HamburgerMenu.css';
 
-const Header = () => {
+const HamburgerMenu = () => {
     const [isOpen, setIsOpen] = useState(false);
 
     const toggleMenu = () => {
@@ -14,19 +11,16 @@ const Header = () => {
     };
 
     return (
-        <header className="header">
-            <div className="logo">BS</div>
+        <>
             <button 
-                className="menu-button"
+                className={`hamburger-button ${isOpen ? 'open' : ''}`}
                 onClick={toggleMenu}
                 aria-label="Menu"
                 aria-expanded={isOpen}
             >
-                {isOpen ? (
-                    <CloseIcon className="menu-icon" />
-                ) : (
-                    <MenuIcon className="menu-icon" />
-                )}
+                <span className="hamburger-line"></span>
+                <span className="hamburger-line"></span>
+                <span className="hamburger-line"></span>
             </button>
 
             <nav className={`slide-menu ${isOpen ? 'open' : ''}`}>
@@ -37,8 +31,8 @@ const Header = () => {
                     <Link to="/contact" onClick={toggleMenu}>Contact</Link>
                 </div>
             </nav>
-        </header>
+        </>
     );
 };
 
-export default Header; 
+export default HamburgerMenu; 

@@ -1,0 +1,74 @@
+:root {
+    --primary-color: #6C63FF;      /* Violeta vibrante para elementos principales */
+    --secondary-color: #00F5FF;    /* Cyan brillante para acentos */
+    --dark-bg: #1A1A2E;           /* Azul muy oscuro para fondos */
+    --light-text: #E6E6FA;        /* Lavanda claro para texto */
+    --accent-color: #FF2E63;      /* Rosa neón para elementos destacados */
+    --gradient-bg: linear-gradient(135deg, var(--dark-bg), #2A2A4E);
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background: var(--gradient-bg);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+}
+
+.nav-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-brand a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-brand a:hover {
+    color: var(--secondary-color);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: var(--light-text);
+    text-decoration: none;
+    font-size: 1rem;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--secondary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--secondary-color);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* Efecto de brillo al hover */
+.nav-link:hover {
+    text-shadow: 0 0 8px var(--secondary-color);
+} 
