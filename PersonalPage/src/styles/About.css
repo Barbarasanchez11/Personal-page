@@ -405,3 +405,119 @@
 .project-item-1 { top: 20vh; }
 .project-item-2 { top: 40vh; }
 .project-item-3 { top: 60vh; }
+
+.about-projects-section {
+  min-height: 100vh;
+  width: 100%;
+  padding: 8rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: hidden;
+}
+
+.about-projects-container {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8rem;
+}
+
+.about-project-item {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 2rem;
+  align-items: center;
+  padding: 2rem;
+  border-bottom: 1px solid rgba(0, 0, 255, 0.2);
+}
+
+.about-project-left-text h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.about-project-left-text p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.about-project-image-container {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.about-project-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-project-right-text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .about-project-item {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  
+  .about-project-right-text {
+    grid-column: 1 / -1;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-projects-section {
+    padding: 4rem 1rem;
+  }
+
+  .about-projects-container {
+    gap: 4rem;
+  }
+
+  .about-project-item {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .about-project-left-text h2 {
+    font-size: 2rem;
+  }
+
+  .about-project-image-container {
+    height: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-projects-section {
+    padding: 2rem 1rem;
+  }
+
+  .about-projects-container {
+    gap: 3rem;
+  }
+
+  .about-project-left-text h2 {
+    font-size: 1.75rem;
+  }
+
+  .about-project-image-container {
+    height: 250px;
+  }
+
+  .about-project-right-text p,
+  .about-project-left-text p {
+    font-size: 1rem;
+  }
+}
