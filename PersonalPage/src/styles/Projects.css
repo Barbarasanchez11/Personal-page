@@ -1,17 +1,135 @@
-.projects {
+.projects-page {
     min-height: 100vh;
-    width: 100%;
+    background-color: #8bb50a;
+    padding: 4rem 2rem;
     display: flex;
-    flex-direction: column;
+    align-items: flex-start;
     justify-content: center;
-    align-items: center;
-    color: white;
-    padding: 2rem;
-    box-sizing: border-box;
 }
 
-.projects h1 {
-    font-size: 3rem;
-    text-align: center;
-    margin-bottom: 2rem;
+.projects-container {
+    width: 100%;
+    max-width: 1400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 2rem;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+    overflow: hidden;
+    transition: padding 0.3s ease-in-out;
+}
+
+.project-card:hover {
+    padding: 4rem 2rem;
+}
+
+.project-text {
+    flex: 1;
+    z-index: 1;
+}
+
+.project-title {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    color: var(--primary-color);
+    margin: 0;
+    font-weight: 500;
+}
+
+.project-subtitle {
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    color: var(--primary-color);
+    margin: 0;
+    font-weight: 700;
+    line-height: 1.1;
+}
+
+.project-media {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-left: 2rem;
+}
+
+.project-image {
+    width: clamp(300px, 30vw, 500px);
+    aspect-ratio: 16/9;
+    background-color: var(--primary-color);
+    border-radius: 8px;
+    transform-origin: center;
+}
+
+.project-number {
+    font-size: clamp(3rem, 5vw, 5rem);
+    color: var(--primary-color);
+    font-weight: 700;
+    transform: rotate(90deg);
+    transform-origin: center;
+    white-space: nowrap;
+}
+
+/* Media queries */
+@media (max-width: 1024px) {
+    .project-card:hover {
+        padding: 3rem 2rem;
+    }
+
+    .project-media {
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .projects-page {
+        padding: 2rem 1rem;
+    }
+
+    .project-card {
+        padding: 1.5rem 1rem;
+        flex-direction: column;
+    }
+
+    .project-card:hover {
+        padding: 2rem 1rem;
+    }
+
+    .project-media {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 2rem;
+        justify-content: flex-end;
+    }
+
+    .project-image {
+        width: 100%;
+    }
+
+    .project-number {
+        font-size: clamp(2.5rem, 4vw, 4rem);
+        position: absolute;
+        right: -1rem;
+        top: 50%;
+        transform: translateY(-50%) rotate(90deg);
+    }
+}
+
+@media (max-width: 480px) {
+    .project-card {
+        padding: 1rem;
+    }
+
+    .project-card:hover {
+        padding: 1.5rem 1rem;
+    }
+
+    .project-media {
+        margin-top: 1.5rem;
+    }
 } 
