@@ -93,11 +93,238 @@
   position: relative;
   z-index: 2;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   padding: 4rem;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+}
+
+/* Timeline styles */
+.timeline-container {
+  position: relative;
+  width: 100%;
+  max-width: 1200px;
+  margin-top: 8rem;
+  padding: 4rem 0;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(to bottom, transparent, #9667e0, #9667e0, transparent);
+  top: 0;
+  border-radius: 3px;
+}
+
+.timeline-card {
+  position: relative;
+  width: 45%;
+  margin: 4rem 0;
+}
+
+.timeline-card.left {
+  margin-right: auto;
+  padding-right: 3rem;
+}
+
+.timeline-card.right {
+  margin-left: auto;
+  padding-left: 3rem;
+}
+
+.timeline-dot {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  background: #70d6ff;
+  border: 4px solid #9667e0;
+  border-radius: 50%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
+  box-shadow: 0 0 0 4px rgba(150, 103, 224, 0.2);
+}
+
+.dot-pulse {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  background: rgba(150, 103, 224, 0.3);
+  animation: pulse 2s ease-out infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.timeline-card.left .timeline-dot {
+  right: -3.5rem;
+}
+
+.timeline-card.right .timeline-dot {
+  left: -3.5rem;
+}
+
+.timeline-content {
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    0 2px 8px rgba(150, 103, 224, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.timeline-content::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: 2rem;
+  height: 2px;
+  background: #9667e0;
+  transform: translateY(-50%);
+}
+
+.timeline-card.left .timeline-content::before {
+  right: -2rem;
+}
+
+.timeline-card.right .timeline-content::before {
+  left: -2rem;
+}
+
+.timeline-year {
+  display: inline-block;
+  background: #9667e0;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 30px;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 12px rgba(150, 103, 224, 0.2);
+}
+
+.timeline-image {
+  width: 100%;
+  height: 220px;
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.timeline-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.timeline-content:hover .timeline-image img {
+  transform: scale(1.05);
+}
+
+.timeline-content h3 {
+  color: #1A1E1C;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+}
+
+.timeline-content p {
+  color: #333;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .timeline-container {
+    margin-top: 4rem;
+    padding: 2rem 0;
+  }
+
+  .timeline-line {
+    left: 24px;
+  }
+
+  .timeline-card {
+    width: calc(100% - 48px);
+    margin: 3rem 0 3rem 48px !important;
+    padding-left: 2rem !important;
+    padding-right: 0 !important;
+  }
+
+  .timeline-dot {
+    left: -36px !important;
+    right: auto !important;
+    width: 20px;
+    height: 20px;
+    border-width: 3px;
+  }
+
+  .timeline-content {
+    padding: 1.5rem;
+  }
+
+  .timeline-content::before {
+    left: -2rem !important;
+    width: 1.5rem;
+  }
+
+  .timeline-image {
+    height: 200px;
+  }
+
+  .timeline-year {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .timeline-content h3 {
+    font-size: 1.4rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .timeline-container {
+    margin-top: 3rem;
+  }
+
+  .timeline-card {
+    margin: 2.5rem 0 2.5rem 48px !important;
+  }
+
+  .timeline-content {
+    padding: 1.25rem;
+  }
+
+  .timeline-image {
+    height: 180px;
+  }
+
+  .timeline-content h3 {
+    font-size: 1.3rem;
+  }
+
+  .timeline-year {
+    font-size: 0.85rem;
+  }
 }
 
 .about-card {
