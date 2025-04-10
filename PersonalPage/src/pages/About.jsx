@@ -4,48 +4,47 @@ import '../styles/About.css';
 
 const About = () => {
   const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll();
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"]
+  });
 
-  // Transformaciones para el movimiento y escala
-  const scale = useTransform(scrollYProgress, [0, 0.4], [1, 0.25]);
-  const yPos = useTransform(scrollYProgress, [0, 0.4], ["85vh", "1vh"]);
-  
-  // Transformaciones para los colores con más pasos para suavizar
+  const scale = useTransform(scrollYProgress, [0, 0.2], [0.5, 0.15]);
+  const yPos = useTransform(scrollYProgress, [0, 0.2], ["75vh", "-5vh"]);
+  const xPos = useTransform(scrollYProgress, [0, 0.2], ["28px", "28px"]);
+
   const textColor = useTransform(
     scrollYProgress,
-    [0, 0.2, 0.4],
-    ["#895cf6", "#895cf6", "#8bb50a"]
+    [0, 0.1, 0.2],
+    ["#895cf6", "#8bb50a", "#8bb50a"]
   );
-  
+
   const backgroundColor = useTransform(
     scrollYProgress,
-    [0, 0.2, 0.4],
-    ["#8bb50a", "#8bb50a", "#895cf6"]
+    [0, 0.1, 0.2],
+    ["#8bb50a", "#895cf6", "#895cf6"]
   );
 
   return (
     <motion.div 
       className="about-wrapper"
+      ref={containerRef}
       style={{ backgroundColor }}
     >
-      <div className="about-container" ref={containerRef}>
+      <section className="intro-section">
         <motion.div 
           className="about-title"
-          style={{
-            scale,
-            y: yPos,
-            color: textColor
+          style={{ 
+            scale, 
+            x: xPos, 
+            y: yPos, 
+            color: textColor 
           }}
         >
-          <div className="title-container">
-            <h1>About</h1>
-            <h1>me</h1>
-          </div>
+          <span className="about-text">About</span>
+          <span className="me-text">me</span>
         </motion.div>
-        <div className="about-content">
-          {/* Aquí irá el contenido del About */}
-        </div>
-      </div>
+      </section>
     </motion.div>
   );
 };
