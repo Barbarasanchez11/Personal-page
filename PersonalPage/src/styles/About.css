@@ -2,6 +2,7 @@
     position: relative;
     width: 100%;
     min-height: 300vh;
+    overflow: hidden;
 }
 
 .intro-section {
@@ -20,12 +21,13 @@
     text-transform: uppercase;
     will-change: transform;
     transform-origin: left center;
+    z-index: 10;
 }
 
 .about-text,
 .me-text {
     display: block;
-    font-size: clamp(3rem, 12vw, 8rem);
+    font-size: clamp(4rem, 15vw, 12rem);
     margin: 0;
     padding: 0;
     white-space: nowrap;
@@ -49,7 +51,7 @@
 @media screen and (min-width: 2560px) {
     .about-text,
     .me-text {
-        font-size: clamp(5rem, 14vw, 12rem);
+        font-size: clamp(6rem, 15vw, 14rem);
     }
 }
 
@@ -57,7 +59,7 @@
 @media screen and (min-width: 1440px) and (max-width: 2559px) {
     .about-text,
     .me-text {
-        font-size: clamp(4rem, 13vw, 10rem);
+        font-size: clamp(5rem, 15vw, 12rem);
     }
 }
 
@@ -65,23 +67,15 @@
 @media screen and (min-width: 1024px) and (max-width: 1439px) {
     .about-text,
     .me-text {
-        font-size: clamp(3.5rem, 12vw, 9rem);
+        font-size: clamp(4rem, 15vw, 10rem);
     }
 }
 
-/* Tablets en horizontal */
-@media screen and (min-width: 768px) and (max-width: 1023px) {
+/* Tablets en horizontal y vertical */
+@media screen and (min-width: 481px) and (max-width: 1023px) {
     .about-text,
     .me-text {
-        font-size: clamp(3rem, 11vw, 8rem);
-    }
-}
-
-/* Tablets en vertical */
-@media screen and (min-width: 481px) and (max-width: 767px) {
-    .about-text,
-    .me-text {
-        font-size: clamp(2.5rem, 10vw, 7rem);
+        font-size: clamp(2.5rem, 8vw, 6rem);
     }
 }
 
@@ -89,7 +83,7 @@
 @media screen and (min-width: 321px) and (max-width: 480px) {
     .about-text,
     .me-text {
-        font-size: clamp(2rem, 9vw, 6rem);
+        font-size: clamp(3rem, 15vw, 8rem);
     }
 }
 
@@ -97,6 +91,6 @@
 @media screen and (max-width: 320px) {
     .about-text,
     .me-text {
-        font-size: clamp(1.5rem, 8vw, 5rem);
+        font-size: clamp(2.5rem, 15vw, 6rem);
     }
 } 

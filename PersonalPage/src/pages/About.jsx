@@ -10,8 +10,8 @@ const About = () => {
   });
 
   const scale = useTransform(scrollYProgress, [0, 0.2], [0.5, 0.15]);
-  const yPos = useTransform(scrollYProgress, [0, 0.2], ["75vh", "-5vh"]);
-  const xPos = useTransform(scrollYProgress, [0, 0.2], ["28px", "28px"]);
+  const yPos = useTransform(scrollYProgress, [0, 0.2], ["85vh", "2vh"]);
+  const xPos = useTransform(scrollYProgress, [0, 0.2], ["5vw", "5vw"]);
 
   const textColor = useTransform(
     scrollYProgress,
@@ -31,7 +31,7 @@ const About = () => {
       ref={containerRef}
       style={{ backgroundColor }}
     >
-      <section className="intro-section">
+      <div className="intro-section">
         <motion.div 
           className="about-title"
           style={{ 
@@ -44,7 +44,7 @@ const About = () => {
           <span className="about-text">About</span>
           <span className="me-text">me</span>
         </motion.div>
-      </section>
+      </div>
     </motion.div>
   );
 };
