@@ -195,19 +195,100 @@ body {
 /* Panel de contenido */
 .hover-mask {
     position: absolute;
-    top: 0;
-    right: 0;
-    width: 60%;
-    height: 100%;
-    transform: translateX(100%);
+    top: 55%;
+    right: 10%;
+    width: 70%;
+    transform: translateY(-50%) translateX(100%);
     opacity: 0;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 6;
+}
+
+.project-info {
+    border: 2px solid rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 2rem;
+    background: transparent;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 2rem;
+    gap: 1.5rem;
+}
+
+.project-title {
+    font-size: 2.5rem;
+    font-weight: 700;
     color: white;
-    z-index: 5;
+    margin: 0;
+    text-align: left;
+    margin-bottom: 1rem;
+}
+
+.project-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+    color: white;
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.project-technologies {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-bottom: 2rem;
+}
+
+.tech-tag {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    color: white;
+    font-size: 0.9rem;
+}
+
+.tech-icon {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+}
+
+.project-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: auto;
+}
+
+.project-link {
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-align: center;
+    min-width: 140px;
+}
+
+.project-link.primary {
+    background: white;
+    color: #333;
+}
+
+.project-link.secondary {
+    border: 2px solid white;
+    color: white;
+}
+
+.project-link.primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.project-link.secondary:hover {
+    background: white;
+    color: #333;
+    transform: translateY(-3px);
 }
 
 /* Efectos hover */
@@ -226,7 +307,7 @@ body {
 }
 
 .project-card:hover .hover-mask {
-    transform: translateX(0);
+    transform: translateY(-50%) translateX(0);
     opacity: 1;
 }
 
@@ -310,7 +391,9 @@ body {
     }
 
     .project-info {
+    
         padding: 1rem;
+    
     }
 
     .project-title {

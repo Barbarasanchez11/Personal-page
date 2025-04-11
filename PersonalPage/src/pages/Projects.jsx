@@ -10,6 +10,24 @@ const backgroundColors = [
   '#FFE5F4'  // Lila suave
 ];
 
+const getTechIcon = (tech) => {
+  const icons = {
+    'React': '/icons/react.svg',
+    'Node.js': '/icons/nodejs.svg',
+    'MongoDB': '/icons/mongodb.svg',
+    'Next.js': '/icons/nextjs.svg',
+    'GraphQL': '/icons/graphql.svg',
+    'Firebase': '/icons/firebase.svg',
+    'Vue.js': '/icons/vuejs.svg',
+    'Express': '/icons/express.svg',
+    'PostgreSQL': '/icons/postgresql.svg',
+    'Angular': '/icons/angular.svg',
+    'Django': '/icons/django.svg',
+    'MySQL': '/icons/mysql.svg'
+  };
+  return icons[tech] || '/icons/code.svg';
+};
+
 const ProjectCard = ({ number, title, description, technologies = [], projectLink = "#", githubLink = "#", imageUrl, index }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, {
@@ -61,12 +79,19 @@ const ProjectCard = ({ number, title, description, technologies = [], projectLin
             <p className="project-description">{description}</p>
             <div className="project-technologies">
               {technologies.map((tech, i) => (
-                <span key={i} className="tech-tag">{tech}</span>
+                <span key={i} className="tech-tag">
+                  <img 
+                    src={getTechIcon(tech)} 
+                    alt={tech} 
+                    className="tech-icon"
+                  />
+                  {tech}
+                </span>
               ))}
             </div>
             <div className="project-links">
-              <a href={projectLink} className="project-link primary">Ver Proyecto</a>
-              <a href={githubLink} className="project-link secondary">Ver Github</a>
+              <a href={projectLink} className="project-link primary">Ir al proyecto</a>
+              <a href={githubLink} className="project-link secondary">Ir a GitHub</a>
             </div>
           </div>
         </div>
