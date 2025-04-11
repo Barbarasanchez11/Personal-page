@@ -67,7 +67,7 @@ const Contact = () => {
     }
   };
 
-  return (
+    return (
     <div className="contact-page">
       <div className="contact-container">
         <div className="geometric-pattern">
@@ -156,7 +156,7 @@ const Contact = () => {
                 {submitStatus === 'error' && (
                   <p className="contact-error">Error al enviar el mensaje. Por favor, inténtalo de nuevo.</p>
                 )}
-              </form>
+        </form>
             </div>
 
             <div className="contact-sidebar">

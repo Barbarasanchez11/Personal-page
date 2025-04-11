@@ -1,30 +1,44 @@
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
+import { useRef } from 'react';
 import '../styles/Projects.css';
 
-const ProjectCard = ({ number, title, subtitle }) => {
+const ProjectCard = ({ number, title, subtitle, index }) => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, {
+    margin: "-10% 0px -10% 0px",
+    once: true
+  });
+  
+  const isFirstProject = index === 0;
+
   return (
-    <motion.div 
-      className="project-card"
-      initial="initial"
-      whileHover="hover"
-      animate="initial"
-    >
-      <div className="project-text">
-        <h2 className="project-title">{title}</h2>
-        <h3 className="project-subtitle">{subtitle}</h3>
-      </div>
+    <section className="project-section" ref={ref}>
       <motion.div 
-        className="project-media"
-        variants={{
-          initial: { opacity: 0, height: 0 },
-          hover: { opacity: 1, height: 'auto' }
+        className="project-card"
+        initial={{ 
+          x: index % 2 === 0 ? 1000 : -1000,
+          opacity: 0 
         }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
+        animate={{ 
+          x: isFirstProject || isInView ? 0 : (index % 2 === 0 ? 1000 : -1000),
+          opacity: isFirstProject || isInView ? 1 : 0
+        }}
+        transition={{
+          duration: 1,
+          ease: "easeOut"
+        }}
       >
-        <div className="project-image"></div>
-        <span className="project-number">{number}</span>
+        <div className="project-content">
+          <span className="project-number">{number}</span>
+          <h2 className="project-title">{title}</h2>
+          <div className="project-links">
+            <a href="#" className="project-link">Ver Proyecto</a>
+            <a href="#" className="project-link">Ver Github</a>
+          </div>
+          <h3 className="project-subtitle">{subtitle}</h3>
+        </div>
       </motion.div>
-    </motion.div>
+    </section>
   );
 };
 
@@ -53,13 +67,15 @@ const Projects = () => {
   ];
 
   return (
-    <div className="projects-page">
-      <div className="projects-container">
-        {projects.map((project) => (
-          <ProjectCard key={project.number} {...project} />
-        ))}
-      </div>
-    </div>
+    <main className="projects-page">
+      {projects.map((project, index) => (
+        <ProjectCard 
+          key={project.number} 
+          {...project} 
+          index={index}
+        />
+      ))}
+    </main>
   );
 };
 
