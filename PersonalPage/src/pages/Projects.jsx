@@ -10,15 +10,7 @@ const backgroundColors = [
   '#FFE5F4'  // Lila suave
 ];
 
-const ProjectCard = ({ 
-  number, 
-  title, 
-  description = "Breve descripción del proyecto que no debe ocupar más de dos líneas de texto para mantener el diseño limpio.", 
-  projectLink = "#",
-  githubLink = "#",
-  imageUrl,
-  index 
-}) => {
+const ProjectCard = ({ number, title, description, technologies = [], projectLink = "#", githubLink = "#", imageUrl, index }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, {
     margin: "-10% 0px -10% 0px",
@@ -28,11 +20,7 @@ const ProjectCard = ({
   const isFirstProject = index === 0;
 
   return (
-    <section 
-      className="project-section" 
-      ref={ref}
-      style={{ backgroundColor: backgroundColors[index] }}
-    >
+    <section className="project-section" ref={ref} style={{ backgroundColor: backgroundColors[index] }}>
       <motion.div 
         className="project-card"
         initial={{ 
@@ -48,23 +36,26 @@ const ProjectCard = ({
           ease: "easeOut"
         }}
       >
-        <div className="project-content group">
-          <div className="project-image-wrapper">
-            <img 
-              src={imageUrl} 
-              alt={title}
-              className="project-image"
-            />
-            <div className="project-overlay">
-              <div className="project-info">
-                <span className="project-number">{number}</span>
-                <h2 className="project-title">{title}</h2>
-                <p className="project-description">{description}</p>
-                <div className="project-links">
-                  <a href={projectLink} className="project-link">Ver Proyecto</a>
-                  <a href={githubLink} className="project-link">Ver Github</a>
-                </div>
-              </div>
+        <div className="project-image-wrapper">
+          <img 
+            src={imageUrl || "https://picsum.photos/800/500"} 
+            alt={title}
+            className="project-image"
+          />
+        </div>
+
+        <div className="hover-mask">
+          <div className="project-info">
+            <h2 className="project-title">{title}</h2>
+            <p className="project-description">{description}</p>
+            <div className="project-technologies">
+              {technologies.map((tech, i) => (
+                <span key={i} className="tech-tag">{tech}</span>
+              ))}
+            </div>
+            <div className="project-links">
+              <a href={projectLink} className="project-link primary">Ver Proyecto</a>
+              <a href={githubLink} className="project-link secondary">Ver Github</a>
             </div>
           </div>
         </div>
@@ -80,6 +71,7 @@ const Projects = () => {
       title: "Project 1",
       description: "Una breve descripción del proyecto 1 que muestra sus características principales.",
       imageUrl: "https://picsum.photos/800/500?random=1",
+      technologies: ["React", "Node.js", "MongoDB"],
       projectLink: "#",
       githubLink: "#"
     },
@@ -88,6 +80,7 @@ const Projects = () => {
       title: "Project 2",
       description: "Una breve descripción del proyecto 2 que muestra sus características principales.",
       imageUrl: "https://picsum.photos/800/500?random=2",
+      technologies: ["Vue.js", "Express", "PostgreSQL"],
       projectLink: "#",
       githubLink: "#"
     },
@@ -96,6 +89,7 @@ const Projects = () => {
       title: "Project 3",
       description: "Una breve descripción del proyecto 3 que muestra sus características principales.",
       imageUrl: "https://picsum.photos/800/500?random=3",
+      technologies: ["Next.js", "GraphQL", "Firebase"],
       projectLink: "#",
       githubLink: "#"
     },
@@ -104,6 +98,7 @@ const Projects = () => {
       title: "Project 4",
       description: "Una breve descripción del proyecto 4 que muestra sus características principales.",
       imageUrl: "https://picsum.photos/800/500?random=4",
+      technologies: ["Angular", "Django", "MySQL"],
       projectLink: "#",
       githubLink: "#"
     }
