@@ -190,6 +190,8 @@ body {
 
 .project-card:hover .project-image {
     border-radius: 0 20px 20px 0;
+   
+    
 }
 
 /* Panel de contenido */
@@ -198,13 +200,14 @@ body {
     top: 55%;
     right: 10%;
     width: 70%;
-    transform: translateY(-50%) translateX(100%);
-    opacity: 0;
+    transform: translateY(-50%) translateX(116%);
+    opacity: 0.6;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 6;
 }
 
 .project-info {
+
     border: 2px solid rgba(255, 255, 255, 0.9);
     border-radius: 15px;
     padding: 2rem;
@@ -212,6 +215,9 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+    margin-top: 100px;
+    backdrop-filter: blur(2px);
+    background: rgba(0, 0, 0, 0.1)
 }
 
 .project-title {
@@ -234,7 +240,7 @@ body {
 
 .project-technologies {
     display: flex;
-    flex-direction: column;
+   
     gap: 0.8rem;
     margin-bottom: 2rem;
 }
@@ -270,26 +276,34 @@ body {
     min-width: 140px;
 }
 
-.project-link.primary {
-    background: white;
-    color: #333;
+.project-link {
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-align: center;
+    min-width: 140px;
 }
 
-.project-link.secondary {
+
+
+.project-link.primary,.project-link.secondary {
     border: 2px solid white;
     color: white;
 }
 
-.project-link.primary:hover {
+.project-link.primary:hover,.project-link.secondary:hover {
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    background-color: #fa80b8;
+    color: white;
+    border: none;
 }
 
-.project-link.secondary:hover {
-    background: white;
-    color: #333;
-    transform: translateY(-3px);
-}
+
+
+
 
 /* Efectos hover */
 .project-card:hover::before,
