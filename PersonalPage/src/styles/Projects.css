@@ -3,7 +3,7 @@
 .projects-page {
     width: 100%;
     background-color: #ffffff;
-    padding-top: 60px; /* Ajuste para el navbar */
+    margin-top:2.5rem;
 }
 
 .project-section {
@@ -437,20 +437,16 @@ body {
 }
 
 @media (max-width: 425px) {
-    .projects-page {
-        padding-top: 80px; /* Más espacio en móvil para el navbar */
-    }
+   
 
     .project-section {
         height: auto;
         min-height: 100vh;
         padding: 1rem;
-        padding-top: 0; /* Eliminar padding superior extra en las secciones */
+        
     }
 
-    .project-section:first-child {
-        padding-top: 1rem; /* Mantener algo de padding en la primera sección */
-    }
+   
 
     .project-card {
         width: 100%;
