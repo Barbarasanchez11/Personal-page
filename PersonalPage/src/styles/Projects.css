@@ -32,6 +32,11 @@ body {
     --primary-color: #0066FF;
     --accent-color: #001F3F;
     --card-gradient: linear-gradient(135deg, #2c3e50, #2980b9);
+    --hover-bg: #FDDCDC;
+    --arch-color: #F25C41;
+    --dark-circle: #0F3B3D;
+    --light-pink: rgba(255, 192, 203, 0.6);
+    --cream-circle: #FFF5E6;
     --card-width: min(90vw, 500px);
     --card-height: min(70vh, 600px);
 }
@@ -54,14 +59,125 @@ body {
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     cursor: pointer;
-    background: white;
+    background: #ffba66;
 }
 
+/* Fondo decorativo que aparece en hover */
+.project-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffba66;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 1;
+}
+
+/* Forma principal (arco naranja) */
+.project-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 65%;
+    height: 100%;
+    background: #4f9df5;
+    border-radius: 100% 0 0 0;
+    opacity: 0;
+    transition: all 0.5s ease;
+    z-index: 2;
+}
+
+/* Círculos y formas decorativas */
+.decorative-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 3;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.circle-cream {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    background: #b3d3f5;
+    border-radius: 50%;
+    left: 25%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.circle-pink {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    background: #fa80b8;
+    border-radius: 50%;
+    bottom: -20px;
+    right: -20px;
+}
+
+.circle-green {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    background: #359691;
+    border-radius: 50%;
+    top: -10px;
+    left: -10px;
+}
+
+/* Nuevas formas decorativas */
+.shape-wave {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background: #a779e6;
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+    bottom: 20%;
+    left: 10%;
+    transform: rotate(45deg);
+}
+
+.shape-blob {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: #9fce97;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    top: 20%;
+    left: 30%;
+    transform: rotate(-15deg);
+}
+
+.floating-dots {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: #fa80b8;
+    border-radius: 50%;
+    opacity: 0.6;
+}
+
+.dot-1 { top: 20%; left: 15%; }
+.dot-2 { top: 40%; left: 25%; }
+.dot-3 { top: 60%; left: 20%; }
+
+/* Contenedor de la imagen */
 .project-image-wrapper {
     width: 100%;
     height: 100%;
     position: relative;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 4;
 }
 
 .project-image {
@@ -72,13 +188,17 @@ body {
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.project-card:hover .project-image {
+    border-radius: 0 20px 20px 0;
+}
+
+/* Panel de contenido */
 .hover-mask {
     position: absolute;
     top: 0;
     right: 0;
     width: 60%;
     height: 100%;
-    background: var(--card-gradient);
     transform: translateX(100%);
     opacity: 0;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -87,77 +207,16 @@ body {
     justify-content: center;
     padding: 2rem;
     color: white;
+    z-index: 5;
 }
 
-.project-info {
-    opacity: 0;
-    transform: translateX(20px);
-    transition: all 0.4s ease 0.2s;
+/* Efectos hover */
+.project-card:hover::before,
+.project-card:hover::after,
+.project-card:hover .decorative-bg {
+    opacity: 1;
 }
 
-.project-title {
-    font-size: 1.8rem;
-    font-weight: bold;
-    margin-bottom: 1.5rem;
-    text-align: center;
-}
-
-.project-description {
-    font-size: 1rem;
-    margin-bottom: 2rem;
-    line-height: 1.6;
-    color: rgba(255, 255, 255, 0.9);
-}
-
-.project-technologies {
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-    margin-bottom: 2rem;
-}
-
-.tech-tag {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 0.9rem;
-}
-
-.tech-tag::before {
-    content: "🛠️";
-    font-size: 1.2rem;
-}
-
-.project-links {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-}
-
-.project-link {
-    padding: 0.8rem 1.5rem;
-    border-radius: 12px;
-    font-weight: 500;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.project-link.primary {
-    background: white;
-    color: #2c3e50;
-}
-
-.project-link.secondary {
-    border: 2px solid white;
-    color: white;
-}
-
-.project-link:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
-
-/* Hover effects */
 .project-card:hover .project-image-wrapper {
     width: 40%;
     height: 70%;
@@ -166,86 +225,61 @@ body {
     left: 0;
 }
 
-.project-card:hover .project-image {
-    border-radius: 0 15px 15px 0;
-}
-
 .project-card:hover .hover-mask {
     transform: translateX(0);
     opacity: 1;
-    width: 60%;
 }
 
-/* Responsive styles */
+/* Responsive */
 @media (max-width: 768px) {
-    .project-card {
-        width: 90%;
-        height: 600px;
-        max-width: 400px;
+    .project-card::after {
+        width: 100%;
+        height: 60%;
+        top: 40%;
+        border-radius: 100% 100% 0 0;
     }
 
-    .project-image-wrapper {
-        width: 100%;
-        height: 100%;
-        position: absolute;
-        top: 0;
-        left: 0;
-        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    .shape-wave {
+        width: 100px;
+        height: 100px;
+        bottom: 10%;
+        left: 5%;
     }
 
-    .project-card:hover .project-image-wrapper {
-        width: 100%;
-        height: 40%;
-        top: 0;
-        left: 0;
+    .shape-blob {
+        width: 70px;
+        height: 70px;
+        top: 45%;
+        left: 20%;
+    }
+
+    .circle-cream {
+        width: 80px;
+        height: 80px;
+        left: 50%;
+        top: 45%;
+        transform: translate(-50%, -50%);
+    }
+
+    .circle-pink {
+        width: 60px;
+        height: 60px;
+        bottom: -15px;
+        right: -15px;
+    }
+
+    .circle-green {
+        width: 25px;
+        height: 25px;
+    }
+
+    .floating-dots {
+        width: 8px;
+        height: 8px;
     }
 
     .project-card:hover .project-image {
         border-radius: 0;
-    }
-
-    .hover-mask {
-        width: 100%;
-        transform: translateY(100%);
-    }
-
-    .project-card:hover .hover-mask {
-        transform: translateY(40%);
-        width: 100%;
-        height: 60%;
-    }
-
-    .project-info {
-        padding: 1.5rem;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-    }
-
-    .project-title {
-        font-size: 1.5rem;
-        margin-bottom: 1rem;
-    }
-
-    .project-description {
-        font-size: 0.9rem;
-        margin-bottom: 1rem;
-    }
-
-    .project-technologies {
-        margin-bottom: 1.5rem;
-    }
-
-    .project-links {
-        flex-direction: column;
-        gap: 0.8rem;
-    }
-
-    .project-link {
-        width: 100%;
-        text-align: center;
-        padding: 0.7rem;
     }
 }
 
@@ -289,5 +323,17 @@ body {
 
     .tech-tag {
         font-size: 0.8rem;
+    }
+
+    .hover-mask::before {
+        width: 90%;
+        left: 5%;
+    }
+
+    .hover-mask::after {
+        width: 60px;
+        height: 60px;
+        bottom: -30px;
+        right: -30px;
     }
 } 

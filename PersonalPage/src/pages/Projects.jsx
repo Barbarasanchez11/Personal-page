@@ -36,6 +36,17 @@ const ProjectCard = ({ number, title, description, technologies = [], projectLin
           ease: "easeOut"
         }}
       >
+        <div className="decorative-bg">
+          <div className="circle-cream"></div>
+          <div className="circle-pink"></div>
+          <div className="circle-green"></div>
+          <div className="shape-wave"></div>
+          <div className="shape-blob"></div>
+          <div className="floating-dots dot-1"></div>
+          <div className="floating-dots dot-2"></div>
+          <div className="floating-dots dot-3"></div>
+        </div>
+        
         <div className="project-image-wrapper">
           <img 
             src={imageUrl || "https://picsum.photos/800/500"} 
