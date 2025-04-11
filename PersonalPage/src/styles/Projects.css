@@ -3,6 +3,7 @@
 .projects-page {
     width: 100%;
     background-color: #ffffff;
+    padding-top: 60px; /* Ajuste para el navbar */
 }
 
 .project-section {
@@ -432,5 +433,151 @@ body {
         height: 60px;
         bottom: -30px;
         right: -30px;
+    }
+}
+
+@media (max-width: 425px) {
+    .projects-page {
+        padding-top: 80px; /* Más espacio en móvil para el navbar */
+    }
+
+    .project-section {
+        height: auto;
+        min-height: 100vh;
+        padding: 1rem;
+        padding-top: 0; /* Eliminar padding superior extra en las secciones */
+    }
+
+    .project-section:first-child {
+        padding-top: 1rem; /* Mantener algo de padding en la primera sección */
+    }
+
+    .project-card {
+        width: 100%;
+        height: auto;
+        min-height: 600px;
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .project-image-wrapper {
+        width: 100%;
+        height: 250px;
+        position: relative;
+        margin-bottom: 2rem;
+    }
+
+    .project-image {
+        border-radius: 15px;
+    }
+
+    .hover-mask {
+        position: relative;
+        top: 0;
+        right: 0;
+        width: 100%;
+        transform: none;
+        opacity: 1;
+        margin-top: 1rem;
+    }
+
+    .project-info {
+        width: 100%;
+        padding: 1.5rem;
+    }
+
+    .project-title {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .project-description {
+        font-size: 0.95rem;
+    }
+
+    .project-technologies {
+        margin: 1.5rem 0;
+    }
+
+    .tech-tag {
+        font-size: 0.85rem;
+    }
+
+    .project-links {
+        flex-direction: column;
+        gap: 0.8rem;
+        width: 100%;
+    }
+
+    .project-link {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Desactivar efectos hover en móvil */
+    .project-card:hover .project-image-wrapper {
+        width: 100%;
+        height: 250px;
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+
+    .project-card:hover .hover-mask {
+        transform: none;
+    }
+
+    /* Ajustes para el fondo decorativo en móvil */
+    .decorative-bg {
+        opacity: 1;
+    }
+
+    .circle-cream {
+        width: 80px;
+        height: 80px;
+    }
+
+    .circle-pink {
+        width: 60px;
+        height: 60px;
+    }
+
+    .circle-green {
+        width: 25px;
+        height: 25px;
+    }
+
+    .shape-wave {
+        width: 100px;
+        height: 100px;
+    }
+
+    .shape-blob {
+        width: 70px;
+        height: 70px;
+    }
+}
+
+/* Ajustes para tablets */
+@media (min-width: 426px) and (max-width: 768px) {
+    .project-section {
+        height: auto;
+        min-height: 100vh;
+        padding: 3rem 2rem;
+    }
+
+    .project-card {
+        width: 100%;
+        height: 500px;
+    }
+
+    .hover-mask {
+        width: 80%;
+        right: 5%;
+    }
+
+    .project-info {
+        padding: 1.5rem;
     }
 } 
