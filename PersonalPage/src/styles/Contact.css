@@ -25,7 +25,7 @@
 
 /* Franja izquierda */
 .column.left {
-    background-color: #2196f3;
+    background-color: #008b74;
     position: relative;
     overflow: hidden;
 }
@@ -44,7 +44,7 @@
 
 /* Franja central */
 .column.center {
-    background-color: #e8bdfb;
+    background-color: #ff70a6;
     position: relative;
     overflow: hidden;
     display: flex;
@@ -70,7 +70,7 @@
     position: absolute;
     width: 80%;
     aspect-ratio: 1;
-    background-color: #f9f4ea;
+    background-color: #ffba66;
     border-radius: 50%;
     bottom: 0;
     left: 50%;
