@@ -1,43 +1,9 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/HamburgerMenu.css';
 
-import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
-import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
-
-const HamburgerMenu = () => {
-    const [isOpen, setIsOpen] = useState(false);
-
-    const toggleMenu = () => {
-        setIsOpen(!isOpen);
-        document.body.style.overflow = isOpen ? 'auto' : 'hidden';
-    };
-
+const HamburgerMenu = ({ isOpen, toggleMenu }) => {
     return (
         <>
-
-            <div className="navbar">
-                
-                {!isOpen && (
-                    <div className="logo">
-                        BS
-                    </div>
-                )}
-            </div>
-            <button 
-                className={`hamburger-button ${isOpen ? 'open' : ''}`}
-                onClick={toggleMenu}
-                aria-label="Menu"
-                aria-expanded={isOpen}
-            >
-              
-                {isOpen ? (
-                    <CloseOutlinedIcon className="menu-icon" />
-                ) : (
-                    <MenuOutlinedIcon className="menu-icon" />
-                )}
-            </button>
-
             <nav className={`slide-menu ${isOpen ? 'open' : ''}`}>
                 <div className="menu-content">
                     <Link to="/" onClick={toggleMenu}>Home</Link>
@@ -46,8 +12,9 @@ const HamburgerMenu = () => {
                     <Link to="/contact" onClick={toggleMenu}>Contacto</Link>
                 </div>
             </nav>
+            {isOpen && <div className="nav-overlay" onClick={toggleMenu}></div>}
         </>
     );
 };
 
-export default HamburgerMenu; 
+export default HamburgerMenu;

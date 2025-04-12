@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import MenuIcon from '@mui/icons-material/Menu';
-import CloseIcon from '@mui/icons-material/Close';
+import Navbar from './Navbar';
 import '../styles/Header.css';
-import '../styles/HamburgerMenu.css';
 
 const Header = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -15,30 +13,15 @@ const Header = () => {
 
     return (
         <header className="header">
-            <div className="logo"><a href='/'>BS</a></div>
-            <button 
-                className="menu-button"
-                onClick={toggleMenu}
-                aria-label="Menu"
-                aria-expanded={isOpen}
-            >
-                {isOpen ? (
-                    <CloseIcon className="menu-icon" />
-                ) : (
-                    <MenuIcon className="menu-icon" />
-                )}
-            </button>
-
-            <nav className={`slide-menu ${isOpen ? 'open' : ''}`}>
-                <div className="menu-content">
-                    <Link to="/" onClick={toggleMenu}>Home</Link>
-                    <Link to="/about" onClick={toggleMenu}>Sobre mi</Link>
-                    <Link to="/projects" onClick={toggleMenu}>Proyectos</Link>
-                    <Link to="/contact" onClick={toggleMenu}>Contacto</Link>
+            
+            {!isOpen && (
+                <div className="logo">
+                    <Link to="/">BS</Link>
                 </div>
-            </nav>
+            )}
+            <Navbar isOpen={isOpen} toggleMenu={toggleMenu} />
         </header>
     );
 };
 
-export default Header; 
+export default Header;
