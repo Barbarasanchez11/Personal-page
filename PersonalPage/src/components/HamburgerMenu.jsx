@@ -2,6 +2,9 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/HamburgerMenu.css';
 
+import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
+import CloseOutlinedIcon from '@mui/icons-material/CloseOutlined';
+
 const HamburgerMenu = () => {
     const [isOpen, setIsOpen] = useState(false);
 
@@ -27,9 +30,12 @@ const HamburgerMenu = () => {
                 aria-label="Menu"
                 aria-expanded={isOpen}
             >
-                <span className="hamburger-line"></span>
-                <span className="hamburger-line"></span>
-                <span className="hamburger-line"></span>
+              
+                {isOpen ? (
+                    <CloseOutlinedIcon className="menu-icon" />
+                ) : (
+                    <MenuOutlinedIcon className="menu-icon" />
+                )}
             </button>
 
             <nav className={`slide-menu ${isOpen ? 'open' : ''}`}>
