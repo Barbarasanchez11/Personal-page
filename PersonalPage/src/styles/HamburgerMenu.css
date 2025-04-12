@@ -36,6 +36,9 @@
     mix-blend-mode: difference;
 }
 
+.slide-menu.open ~ .navbar .logo {
+    display: none; /* Ocultar el logo cuando el menú está abierto */
+}
 /* Botón del menú */
 .menu-button {
     position: fixed;
@@ -98,31 +101,19 @@
     position: relative;
     transition: all 0.3s var(--transition-timing);
     -webkit-text-stroke: 0px var(--text-color);
-    text-decoration: none;
-    
+    background: transparent; /* Fondo transparente por defecto */
+}
+
+/* Eliminar el pseudo-elemento ::after para quitar el subrayado */
+.menu-content a::after {
+    display: none; /* O simplemente elimina esta sección */
 }
 
 .menu-content a:hover {
     color: transparent;
     -webkit-text-stroke: 1px var(--text-color);
-    text-decoration: none;
-}
-
-.menu-content a::after {
-    content: '';
-    position: absolute;
-    bottom: -5px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--text-color);
-    transition: width 0.3s var(--transition-timing);
-    text-decoration: none;
-}
-
-.menu-content a:hover::after {
-    width: 100%;
-    text-decoration: none;
+    background: transparent; /* Fondo transparente en hover */
+    transition: all 0.3s var(--transition-timing); /* Transición suave */
 }
 
 /* Media queries para responsividad */
