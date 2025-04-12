@@ -34,6 +34,7 @@
     font-weight: 600;
     color: #a779e6;
     mix-blend-mode: difference;
+    display: none;
 }
 
 .slide-menu.open ~ .navbar .logo {

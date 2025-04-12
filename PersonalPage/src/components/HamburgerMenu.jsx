@@ -12,6 +12,15 @@ const HamburgerMenu = () => {
 
     return (
         <>
+
+            <div className="navbar">
+                
+                {!isOpen && (
+                    <div className="logo">
+                        BS
+                    </div>
+                )}
+            </div>
             <button 
                 className={`hamburger-button ${isOpen ? 'open' : ''}`}
                 onClick={toggleMenu}
