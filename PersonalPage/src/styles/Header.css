@@ -39,7 +39,7 @@
     font-family: 'Monument Extended', sans-serif;
     font-size: 1.25rem;
     font-weight: 600;
-    color: var(--purple);
+    color: var(--pink);
     transition: color 0.3s var(--transition-timing);
 }
 

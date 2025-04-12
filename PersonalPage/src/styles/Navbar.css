@@ -22,7 +22,7 @@
 
 /* Estilo del icono */
 .menu-icon {
-    color: var(--purple);
+    color: var(--pink);
     width: 24px;
     height: 24px;
     transition: transform 0.3s var(--transition-timing);

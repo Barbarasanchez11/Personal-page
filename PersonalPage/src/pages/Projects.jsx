@@ -106,35 +106,26 @@ const Projects = () => {
       number: "01",
       title: "Futura Biolab",
       description: "FuturaBioLab es una plataforma colaborativa de código abierto que conecta creadores e investigadores de biomateriales. Permite compartir proyectos, gestionar contenido y fomentar la innovación sostenible en un entorno accesible y escalable.",
-      imageUrl: "https://picsum.photos/800/500?random=1",
-      technologies: ["React", "Node.js", "MongoDb"],
+      imageUrl: "/assets/futura.png",
+      technologies: ["React", "Node.js", "MongoDB"],
       projectLink: "#",
-      githubLink: "#"
+      githubLink: "https://github.com/Barbarasanchez11/FuturaBioLab"
     },
     {
       number: "02",
-      title: "Project 2",
+      title: "VeganFit Store",
       description: "VeganFit Store es una tienda online desarrollada con React para el frontend, Node.js en el backend y MongoDB como base de datos, ofreciendo una experiencia de compra segura y optimizada para productos deportivos y suplementos veganos.",
-      imageUrl: "https://picsum.photos/800/500?random=2",
-      technologies: ["React", "Node.js", "MongoDb"],
-      projectLink: "#",
-      githubLink: "#"
+      imageUrl: "/assets/veganfit.png",
+      technologies: ["React", "Node.js", "MongoDB"],
+      projectLink: "https://backend-project-break-7.onrender.com",
+      githubLink: "https://github.com/Barbarasanchez11/backend-project-break"
     },
     {
       number: "03",
-      title: "Project 3",
-      description: "Una breve descripción del proyecto 3 que muestra sus características principales.",
-      imageUrl: "https://picsum.photos/800/500?random=3",
-      technologies: ["Next.js", "GraphQL", "Firebase"],
-      projectLink: "#",
-      githubLink: "#"
-    },
-    {
-      number: "04",
       title: "Hoverboard",
       description: "Pequeño proyecto web donde los colores se iluminan en una cuadrícula animada, desafiando la memoria visual del usuario. Desarrollado con HTML, CSS y JavaScript.",
-      imageUrl: "https://picsum.photos/800/500?random=4",
-      technologies: ["Js", "CSS", "HTML"],
+      imageUrl: "/assets/hoverboard.png",
+      technologies: ["JavaScript", "CSS", "HTML"],
       projectLink: "#",
       githubLink: "https://github.com/Barbarasanchez11/Hoverboard"
     }
