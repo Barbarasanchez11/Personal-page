@@ -216,57 +216,56 @@ body {
 }
 
 .project-info {
-
-    border: 2px solid rgba(255, 255, 255, 0.9);
-    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
     padding: 2rem;
-    background: transparent;
-    display: flex;
-    flex-direction: column;
-    gap: 1.5rem;
-    margin-top: 100px;
-    backdrop-filter: blur(2px);
-    background: rgba(0, 0, 0, 0.1)
+    width: 100%;
 }
 
 .project-title {
-    font-size: 2.5rem;
-    font-weight: 700;
+    font-size: 2rem;
+    font-weight: bold;
     color: white;
-    margin: 0;
-    text-align: left;
     margin-bottom: 1rem;
 }
 
 .project-description {
     font-size: 1rem;
-    
-    
+    line-height: 1.5;
     color: white;
-    text-align: left;
-   
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    overflow: hidden;
+    transition: all 0.3s ease;
 }
 
 .project-technologies {
     display: flex;
-   
-    gap: 0.8rem;
-    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
 }
 
 .tech-tag {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    color: white;
     display: flex;
     align-items: center;
-    gap: 1rem;
-    color: white;
-    font-size: 0.9rem;
+    gap: 0.5rem;
 }
 
-.tech-icon {
-    width: 24px;
-    height: 24px;
+.tech-tag img {
+    width: 20px;
+    height: 20px;
     object-fit: contain;
-    filter: brightness(0) invert(1);
 }
 
 .project-links {
@@ -831,5 +830,135 @@ body {
     .shape-blob {
         width: 70px;
         height: 70px;
+    }
+}
+
+/* Tablets */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .project-card {
+        height: 500px;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .project-image-wrapper {
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .project-card:hover .project-image-wrapper {
+        width: 45%;
+        height: 80%;
+        position: absolute;
+        top: 10%;
+        left: 0;
+    }
+
+    .project-info {
+        padding: 1.5rem;
+    }
+
+    .project-title {
+        font-size: 1.75rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .project-description {
+        font-size: 0.95rem;
+        margin-bottom: 0.75rem;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+    }
+
+    .project-card:hover .project-description {
+        -webkit-line-clamp: 5;
+        line-clamp: 5;
+    }
+
+    .project-technologies {
+        gap: 0.4rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .tech-tag {
+        padding: 0.25rem 0.6rem;
+        font-size: 0.85rem;
+    }
+
+    .tech-tag img {
+        width: 18px;
+        height: 18px;
+    }
+
+    .hover-mask {
+        position: absolute;
+        top: 50%;
+        right: 5%;
+        width: 55%;
+        transform: translateY(-50%) translateX(100%);
+        opacity: 0;
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 6;
+    }
+
+    .project-card:hover .hover-mask {
+        transform: translateY(-50%) translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+    .project-card {
+        height: auto;
+        min-height: auto;
+        margin-bottom: 2rem;
+    }
+
+    .project-image-wrapper {
+        height: 200px;
+        margin-bottom: 1rem;
+    }
+
+    .project-info {
+        padding: 1.25rem;
+    }
+
+    .project-title {
+        font-size: 1.5rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .project-description {
+        font-size: 0.9rem;
+        margin-bottom: 0.75rem;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+    }
+
+    .project-card:hover .project-description {
+        -webkit-line-clamp: 4;
+        line-clamp: 4;
+    }
+
+    .project-technologies {
+        gap: 0.3rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .tech-tag {
+        padding: 0.2rem 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    .tech-tag img {
+        width: 16px;
+        height: 16px;
+    }
+
+    .hover-mask {
+        position: relative;
+        width: 100%;
+        transform: none;
+        opacity: 1;
     }
 } 
