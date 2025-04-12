@@ -1,6 +1,9 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import '../styles/Projects.css';
+import futura from '../assets/futura.png';
+import veganfit from '../assets/veganfit.png';
+import hoverboard from '../assets/hoverboard.png';
 
 // Paleta de colores para los fondos
 const backgroundColors = [
@@ -106,7 +109,7 @@ const Projects = () => {
       number: "01",
       title: "Futura Biolab",
       description: "FuturaBioLab es una plataforma colaborativa de código abierto que conecta creadores e investigadores de biomateriales. Permite compartir proyectos, gestionar contenido y fomentar la innovación sostenible en un entorno accesible y escalable.",
-      imageUrl: "/assets/futura.png",
+      imageUrl: futura,
       technologies: ["React", "Node.js", "MongoDB"],
       projectLink: "#",
       githubLink: "https://github.com/Barbarasanchez11/FuturaBioLab"
@@ -115,7 +118,7 @@ const Projects = () => {
       number: "02",
       title: "VeganFit Store",
       description: "VeganFit Store es una tienda online desarrollada con React para el frontend, Node.js en el backend y MongoDB como base de datos, ofreciendo una experiencia de compra segura y optimizada para productos deportivos y suplementos veganos.",
-      imageUrl: "/assets/veganfit.png",
+      imageUrl: veganfit,
       technologies: ["React", "Node.js", "MongoDB"],
       projectLink: "https://backend-project-break-7.onrender.com",
       githubLink: "https://github.com/Barbarasanchez11/backend-project-break"
@@ -124,7 +127,7 @@ const Projects = () => {
       number: "03",
       title: "Hoverboard",
       description: "Pequeño proyecto web donde los colores se iluminan en una cuadrícula animada, desafiando la memoria visual del usuario. Desarrollado con HTML, CSS y JavaScript.",
-      imageUrl: "/assets/hoverboard.png",
+      imageUrl: hoverboard,
       technologies: ["JavaScript", "CSS", "HTML"],
       projectLink: "#",
       githubLink: "https://github.com/Barbarasanchez11/Hoverboard"
@@ -144,4 +147,4 @@ const Projects = () => {
   );
 };
 
-export default Projects; 
+export default Projects;
