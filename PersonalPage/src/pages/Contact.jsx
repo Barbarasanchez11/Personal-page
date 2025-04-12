@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import emailjs from '@emailjs/browser'; // Importa EmailJS
 import '../styles/Contact.css';
 
 const Contact = () => {
@@ -14,36 +15,19 @@ const Contact = () => {
 
   const validateForm = () => {
     const newErrors = {};
-    if (!formData.name.trim()) {
-      newErrors.name = 'El nombre es requerido';
-    }
-    if (!formData.email.trim()) {
-      newErrors.email = 'El email es requerido';
-    } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = 'El email no es válido';
-    }
-    if (!formData.subject.trim()) {
-      newErrors.subject = 'El asunto es requerido';
-    }
-    if (!formData.message.trim()) {
-      newErrors.message = 'El mensaje es requerido';
-    }
+    if (!formData.name.trim()) newErrors.name = 'El nombre es requerido';
+    if (!formData.email.trim()) newErrors.email = 'El email es requerido';
+    else if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = 'El email no es válido';
+    if (!formData.subject.trim()) newErrors.subject = 'El asunto es requerido';
+    if (!formData.message.trim()) newErrors.message = 'El mensaje es requerido';
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-    if (errors[name]) {
-      setErrors(prev => ({
-        ...prev,
-        [name]: ''
-      }));
-    }
+    setFormData(prev => ({ ...prev, [name]: value }));
+    if (errors[name]) setErrors(prev => ({ ...prev, [name]: '' }));
   };
 
   const handleSubmit = async (e) => {
@@ -52,7 +36,20 @@ const Contact = () => {
 
     setIsSubmitting(true);
     try {
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Enviar el correo usando EmailJS
+      const result = await emailjs.send(
+        'YOUR_SERVICE_ID', // Reemplaza con tu Service ID de EmailJS
+        'YOUR_TEMPLATE_ID', // Reemplaza con tu Template ID de EmailJS
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+        },
+        'YOUR_USER_ID' // Reemplaza con tu User ID de EmailJS
+      );
+
+      console.log('Correo enviado:', result.text);
       setSubmitStatus('success');
       setFormData({
         name: '',
@@ -61,13 +58,15 @@ const Contact = () => {
         message: ''
       });
     } catch (error) {
+      console.error('Error al enviar el correo:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
     }
   };
 
-    return (
+  // El resto del código (return) sigue igual
+  return (
     <div className="contact-page">
       <div className="contact-container">
         <div className="geometric-pattern">
@@ -75,10 +74,8 @@ const Contact = () => {
           <div className="column center"></div>
           <div className="column right"></div>
         </div>
-        
         <div className="contact-content">
           <h1 className="contact-heading">Contacto</h1>
-          
           <div className="contact-layout">
             <div className="contact-form-wrapper">
               <form onSubmit={handleSubmit} noValidate className="contact-form">
@@ -156,15 +153,13 @@ const Contact = () => {
                 {submitStatus === 'error' && (
                   <p className="contact-error">Error al enviar el mensaje. Por favor, inténtalo de nuevo.</p>
                 )}
-        </form>
+              </form>
             </div>
-
             <div className="contact-sidebar">
               <h2 className="connect-heading">Conecta Conmigo</h2>
-              
               <div className="social-buttons">
                 <a 
-                  href="https://github.com/barbarasanchezurbano" 
+                  href="https://github.com/Barbarasanchez11" 
                   className="social-link"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -176,7 +171,7 @@ const Contact = () => {
                   GitHub
                 </a>
                 <a 
-                  href="https://linkedin.com/in/barbarasanchezurbano" 
+                  href="https://www.linkedin.com/in/barbara-sanchez-49b230181/" 
                   className="social-link"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -187,18 +182,8 @@ const Contact = () => {
                   </svg>
                   LinkedIn
                 </a>
-                <a 
-                  href="mailto:barbarasanchezurbano@gmail.com" 
-                  className="social-link"
-                  aria-label="Email"
-                >
-                  <svg className="social-icon" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M0 3v18h24v-18h-24zm21.518 2l-9.518 7.713-9.518-7.713h19.036zm-19.518 14v-11.817l10 8.104 10-8.104v11.817h-20z"/>
-                  </svg>
-                  Correo
-                </a>
+                
               </div>
-
               <div className="email-section">
                 <h3 className="email-heading">¿Prefieres el correo?</h3>
                 <a 
