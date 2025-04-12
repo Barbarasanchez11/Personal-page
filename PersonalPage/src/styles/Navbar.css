@@ -1,106 +1,106 @@
-:root {
-    --primary-color: #6C63FF;      /* Violeta vibrante para elementos principales */
-    --secondary-color: #00F5FF;    /* Cyan brillante para acentos */
-    --dark-bg: #1A1A2E;           /* Azul muy oscuro para fondos */
-    --light-text: #E6E6FA;        /* Lavanda claro para texto */
-    --accent-color: #FF2E63;      /* Rosa neón para elementos destacados */
-    --gradient-bg: linear-gradient(135deg, var(--dark-bg), #2A2A4E);
+/* Botón del menú hamburguesa */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
 }
 
-.navbar {
+.hamburger-button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    z-index: 1002; /* Mayor que el menú para que siempre sea clickable */
+    padding: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: fixed;
     top: 0;
-    left: 0;
     right: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    z-index: 1000;
-    background: transparent;
 }
 
-.nav-brand {
-    font-size: 1.5rem;
-    font-weight: bold;
-    transition: opacity 0.3s ease;
+/* Estilo del icono */
+.menu-icon {
+    color: var(--purple);
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s var(--transition-timing);
+}
+
+/* Rotación del icono al abrir/cerrar */
+.hamburger-button.open .menu-icon {
+    transform: rotate(90deg);
+    color: var(--pink);
+}
+
+.hamburger-button:hover .menu-icon {
+    color: var(--pink);
+}
+
+/* Media queries para responsividad */
+@media (max-width: 768px) {
+    .hamburger-button {
+        padding: 1.2rem;
+    }
+
+    .menu-icon {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hamburger-button {
+        padding: 1rem;
+    }
+
+    .menu-icon {
+        width: 18px;
+        height: 18px;
+    }
 }
 
 .nav-brand a {
-    color: #a779e6;
+    color: var(--purple);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .nav-brand a:hover {
-    color: #e8bdfb;
+    color: var(--pink);
 }
 
 .hamburger {
-    display: none;
-    cursor: pointer;
-    color: #a779e6;
+    color: var(--purple);
     transition: color 0.3s ease;
 }
 
 .hamburger:hover {
-    color: #e8bdfb;
-}
-
-.nav-links {
-    display: flex;
-    gap: 2rem;
+    color: var(--pink);
 }
 
 .nav-link {
-    color: #a779e6;
+    color: var(--purple);
     text-decoration: none;
     font-size: 1.1rem;
     transition: color 0.3s ease;
 }
 
 .nav-link:hover {
-    color: #e8bdfb;
+    color: var(--pink);
 }
 
 @media (max-width: 768px) {
-    .hamburger {
-        display: block;
-        z-index: 1001;
-    }
-
     .nav-links {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 2rem;
-        background-color: #a779e6;
-        transform: translateX(100%);
-        transition: transform 0.3s ease;
-        z-index: 999;
-    }
-
-    .nav-links.active {
-        transform: translateX(0);
-    }
-
-    /* Ocultar el logo cuando el menú está activo */
-    .nav-links.active + .nav-brand {
-        display: none;
+        background-color: var(--purple);
     }
 
     .nav-links .nav-link {
-        color: white;
-        font-size: 1.5rem;
-        text-decoration: none;
+        color: var(--white);
     }
 
     .nav-links .nav-link:hover {
-        color: #e8bdfb;
+        color: var(--pink);
     }
-} 
+}

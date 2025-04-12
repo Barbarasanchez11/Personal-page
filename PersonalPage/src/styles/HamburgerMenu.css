@@ -1,76 +1,3 @@
-/* Variables para la paleta de colores moderna y vibrante */
-:root {
-    --primary-color: #8B5CF6;    /* Violeta vibrante */
-    --secondary-color: #6366F1;  /* Índigo brillante */
-    --accent-color: #8bb50a;     /* Verde lima */
-    --light-purple: #A78BFA;     /* Violeta claro */
-    --text-color: #8bb50a;       /* Verde lima */
-    --menu-bg: rgba(139, 92, 246, 1); /* Violeta semi-transparente */
-    --gradient-bg: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-    --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Navbar base */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 2rem;
-    z-index: 1000;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-}
-
-
-/* Botón del menú */
-.menu-button {
-    position: fixed;
-    top: 50%;
-    right: 1.2rem;
-    transform: translateY(-50%);
-    width: 24px;
-    height: 24px;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    z-index: 1000;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.hamburger-button {
-    position: fixed;
-    top: 1.5rem; 
-    right: 1.2rem;
-    border: none;
-    background: transparent;
-    cursor: pointer;
-    z-index: 1001; 
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.menu-icon {
-    color: var(--text-color);
-    width: 24px;
-    height: 24px;
-    transition: transform 0.3s var(--transition-timing);
-}
-
-.hamburger-button.open .menu-icon {
-    transform: rotate(90deg); 
-}
-
 /* Menú deslizante */
 .slide-menu {
     position: fixed;
@@ -79,13 +6,40 @@
     width: 100vw;
     height: 100vh;
     background: var(--menu-bg);
-    backdrop-filter: blur(10px);
     transition: left 0.5s var(--transition-timing);
-    z-index: 999;
+    z-index: 1001; 
 }
 
 .slide-menu.open {
     left: 0;
+}
+
+/* Botón de cerrar */
+.slide-menu .close-button {
+    position: fixed;
+    top: 1.5rem;
+    right: 1.2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 1002;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.close-icon {
+    
+    color: var(--purple);
+    width: 24px;
+    height: 24px;
+    transition: transform 0.3s var(--transition-timing);
+}
+
+.close-button:hover .close-icon {
+    transform: rotate(90deg);
+    color: var(--pink);
 }
 
 /* Contenido del menú */
@@ -97,41 +51,71 @@
     align-items: flex-start;
     gap: 2.5rem;
     padding: 4rem;
-    text-decoration: none;
-
 }
 
-.menu-content a {
-    color: var(--text-color);
+.menu-link {
     text-decoration: none;
     font-size: 4rem;
     position: relative;
     transition: all 0.3s var(--transition-timing);
-    -webkit-text-stroke: 0px var(--text-color);
-    background: transparent; /* Fondo transparente por defecto */
+    background: transparent;
 }
 
-/* Eliminar el pseudo-elemento ::after para quitar el subrayado */
-.menu-content a::after {
-    display: none; /* O simplemente elimina esta sección */
+.menu-link.light-blue {
+    color: var(--light-blue);
 }
 
-.menu-content a:hover {
-    color: transparent;
-    -webkit-text-stroke: 1px var(--text-color);
-    background: transparent; /* Fondo transparente en hover */
-    transition: all 0.3s var(--transition-timing); /* Transición suave */
+.menu-link.light-orange {
+    color: var(--light-orange);
+}
+
+.menu-link.light-green {
+    color: var(--light-green);
+}
+
+.menu-link.medium-blue {
+    color: var(--medium-blue);
+}
+
+.menu-link:hover {
+    color: transparent !important;
+}
+
+.menu-link.light-blue:hover {
+    -webkit-text-stroke: 1px var(--light-blue);
+}
+
+.menu-link.light-orange:hover {
+    -webkit-text-stroke: 1px var(--light-orange);
+}
+
+.menu-link.light-green:hover {
+    -webkit-text-stroke: 1px var(--light-green);
+}
+
+.menu-link.medium-blue:hover {
+    -webkit-text-stroke: 1px var(--medium-blue);
+}
+
+/* Overlay para prevenir interacción con el contenido detrás */
+.nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000; 
 }
 
 /* Media queries para responsividad */
 @media (max-width: 768px) {
-    .menu-button {
-        width: 20px;
-        height: 20px;
+    .close-button {
+        top: 1.2rem;
         right: 1rem;
     }
 
-    .menu-icon {
+    .close-icon {
         width: 20px;
         height: 20px;
     }
@@ -140,18 +124,18 @@
         padding: 3rem;
     }
 
-    .menu-content a {
+    .menu-link {
         font-size: 3rem;
     }
 }
 
 @media (max-width: 480px) {
-    .menu-button {
-        width: 18px;
-        height: 18px;
+    .close-button {
+        top: 1rem;
+        right: 0.8rem;
     }
 
-    .menu-icon {
+    .close-icon {
         width: 18px;
         height: 18px;
     }
@@ -160,68 +144,7 @@
         padding: 2rem;
     }
 
-    .menu-content a {
-        font-size: 2.5rem;
-    }
-}
-
-
-
-
-/* Prevenir scroll cuando el menú está abierto */
-body.menu-open {
-    overflow: hidden;
-}
-
-/* Responsive design */
-@media (max-width: 1024px) {
-    .menu-link {
-        font-size: 3rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .navbar {
-        height: 3.5rem;
-        padding: 0 1.5rem;
-    }
-
-    .hamburger-button {
-        top: 1.2rem;
-        right: 1rem;
-    }
-
-    .menu-icon {
-        width: 20px;
-        height: 20px;
-    }
     .menu-link {
         font-size: 2.5rem;
     }
 }
-
-@media (max-width: 480px) {
-    .navbar {
-        height: 3rem;
-        padding: 0 1rem;
-    }
-
-    
-
-    .hamburger-button {
-        top: 1rem;
-        right: 0.8rem;
-    }
-
-    .menu-icon {
-        width: 18px;
-        height: 18px;
-    }
-    .menu-links {
-        gap: 1.5rem;
-    }
-
-    .menu-link {
-        font-size: 2rem;
-    }
-} 

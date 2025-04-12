@@ -10,6 +10,9 @@
   --color-pink: #FF8FAB;
   --color-blue: #4ECDC4;
   --color-cream: #FFF9DE;
+  --purple: #9667e0;
+  --light-blue: #70d6ff;
+  --white: #FFFFFF;
 }
 
 .about {
@@ -115,7 +118,7 @@
   transform: translateX(-50%);
   width: 3px;
   height: 100%;
-  background: linear-gradient(to bottom, transparent, #9667e0, #9667e0, transparent);
+  background: linear-gradient(to bottom, transparent, var(--purple), var(--purple), transparent);
   top: 0;
   border-radius: 3px;
 }
@@ -140,20 +143,20 @@
   position: absolute;
   width: 24px;
   height: 24px;
-  background: #70d6ff;
-  border: 4px solid #9667e0;
+  background: var(--light-blue);
+  border: 4px solid var(--purple);
   border-radius: 50%;
   top: 50%;
   transform: translateY(-50%);
   z-index: 2;
-  box-shadow: 0 0 0 4px rgba(150, 103, 224, 0.2);
+  box-shadow: 0 0 0 4px rgba(167, 121, 230, 0.2);
 }
 
 .dot-pulse {
   position: absolute;
   inset: -8px;
   border-radius: 50%;
-  background: rgba(150, 103, 224, 0.3);
+  background: rgba(167, 121, 230, 0.3);
   animation: pulse 2s ease-out infinite;
 }
 
@@ -183,7 +186,7 @@
   padding: 2rem;
   box-shadow: 
     0 8px 32px rgba(0, 0, 0, 0.1),
-    0 2px 8px rgba(150, 103, 224, 0.1);
+    0 2px 8px rgba(167, 121, 230, 0.1);
   position: relative;
   overflow: hidden;
 }
@@ -194,7 +197,7 @@
   top: 50%;
   width: 2rem;
   height: 2px;
-  background: #9667e0;
+  background: var(--purple);
   transform: translateY(-50%);
 }
 
@@ -208,14 +211,14 @@
 
 .timeline-year {
   display: inline-block;
-  background: #9667e0;
-  color: white;
+  background: var(--purple);
+  color: var(--white);
   padding: 0.6rem 1.2rem;
   border-radius: 30px;
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 1.5rem;
-  box-shadow: 0 4px 12px rgba(150, 103, 224, 0.2);
+  box-shadow: 0 4px 12px rgba(167, 121, 230, 0.2);
 }
 
 .timeline-image {

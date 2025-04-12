@@ -42,6 +42,12 @@ body {
     --cream-circle: #FFF5E6;
     --card-width: min(90vw, 500px);
     --card-height: min(70vh, 600px);
+    --light-blue: #b3d3f5;
+    --pink: #fa80b8;
+    --teal: #359691;
+    --purple: #a779e6;
+    --light-green: #9fce97;
+    --white: #ffffff;
 }
 
 .projects-container {
@@ -111,7 +117,7 @@ body {
     position: absolute;
     width: 120px;
     height: 120px;
-    background: #b3d3f5;
+    background: var(--light-blue);
     border-radius: 50%;
     left: 25%;
     top: 50%;
@@ -122,7 +128,7 @@ body {
     position: absolute;
     width: 80px;
     height: 80px;
-    background: #fa80b8;
+    background: var(--pink);
     border-radius: 50%;
     bottom: -20px;
     right: -20px;
@@ -132,7 +138,7 @@ body {
     position: absolute;
     width: 35px;
     height: 35px;
-    background: #359691;
+    background: var(--teal);
     border-radius: 50%;
     top: -10px;
     left: -10px;
@@ -143,7 +149,7 @@ body {
     position: absolute;
     width: 150px;
     height: 150px;
-    background: #a779e6;
+    background: var(--purple);
     border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
     bottom: 20%;
     left: 10%;
@@ -154,7 +160,7 @@ body {
     position: absolute;
     width: 100px;
     height: 100px;
-    background: #9fce97;
+    background: var(--light-green);
     border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
     top: 20%;
     left: 30%;
@@ -165,7 +171,7 @@ body {
     position: absolute;
     width: 10px;
     height: 10px;
-    background: #fa80b8;
+    background: var(--pink);
     border-radius: 50%;
     opacity: 0.6;
 }
@@ -234,11 +240,11 @@ body {
 
 .project-description {
     font-size: 1rem;
-    line-height: 1.6;
-    margin: 0;
+    
+    
     color: white;
     text-align: left;
-    margin-bottom: 1.5rem;
+   
 }
 
 .project-technologies {
@@ -279,18 +285,6 @@ body {
     min-width: 140px;
 }
 
-.project-link {
-    padding: 0.8rem 1.5rem;
-    border-radius: 25px;
-    text-decoration: none;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    text-align: center;
-    min-width: 140px;
-}
-
-
-
 .project-link.primary,.project-link.secondary {
     border: 2px solid white;
     color: white;
@@ -299,14 +293,10 @@ body {
 .project-link.primary:hover,.project-link.secondary:hover {
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-    background-color: #fa80b8;
-    color: white;
+    background-color: var(--pink);
+    color: var(--white);
     border: none;
 }
-
-
-
-
 
 /* Efectos hover */
 .project-card:hover::before,
@@ -576,20 +566,270 @@ body {
     .project-section {
         height: auto;
         min-height: 100vh;
-        padding: 3rem 2rem;
+        padding: 2rem;
     }
 
     .project-card {
         width: 100%;
         height: 500px;
+        overflow: hidden;
+    }
+
+    .project-image-wrapper {
+        width: 100%;
+        height: 100%;
+        transition: all 0.5s ease;
+    }
+
+    .project-card:hover .project-image-wrapper {
+        width: 100%;
+        height: 40%;
+        position: relative;
+        top: 0;
+        left: 0;
     }
 
     .hover-mask {
-        width: 80%;
-        right: 5%;
+        position: relative;
+        width: 100%;
+        transform: none;
+        opacity: 0;
+        transition: all 0.5s ease;
+    }
+
+    .project-card:hover .hover-mask {
+        transform: none;
+        opacity: 1;
+        margin-top: 2rem;
     }
 
     .project-info {
         padding: 1.5rem;
+        max-height: none;
+        overflow: visible;
+        backdrop-filter: blur(5px);
+        background: rgba(0, 0, 0, 0.2);
+    }
+
+    .project-title {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+    }
+
+    .project-description {
+        font-size: 0.95rem;
+        margin-bottom: 1rem;
+    }
+
+    .project-technologies {
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        margin: 1.5rem 0;
+    }
+
+    .tech-tag {
+        font-size: 0.9rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    .project-links {
+        margin-top: 1.5rem;
+        display: flex;
+        gap: 1rem;
+    }
+
+    .project-link {
+        flex: 1;
+        text-align: center;
+    }
+}
+
+@media (max-width: 1024px) {
+    .project-card {
+        height: 70vh;
+        max-width: 90%;
+    }
+
+    .project-title {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .project-card {
+        width: 95%;
+        height: 500px;
+    }
+
+    .project-card:hover .project-image-wrapper {
+        height: 35%;
+    }
+
+    .project-card:hover .hover-mask {
+        transform: translateY(35%);
+        height: 65%;
+    }
+
+    .project-info {
+    
+        padding: 1rem;
+    
+    }
+
+    .project-title {
+        font-size: 1.3rem;
+    }
+
+    .project-description {
+        font-size: 0.85rem;
+    }
+
+    .tech-tag {
+        font-size: 0.8rem;
+    }
+
+    .hover-mask::before {
+        width: 90%;
+        left: 5%;
+    }
+
+    .hover-mask::after {
+        width: 60px;
+        height: 60px;
+        bottom: -30px;
+        right: -30px;
+    }
+}
+
+@media (max-width: 425px) {
+    .projects-page {
+        padding-top: 80px;
+    }
+
+    .project-section {
+        height: auto;
+        min-height: 100vh;
+        padding: 1rem;
+        padding-top: 0;
+    }
+
+    .project-section:first-child {
+        padding-top: 1rem;
+    }
+
+    .project-card {
+        width: 100%;
+        height: auto;
+        min-height: 600px;
+        display: flex;
+        flex-direction: column;
+        padding: 1rem;
+        overflow: hidden;
+    }
+
+    .project-image-wrapper {
+        width: 100%;
+        height: 250px;
+        position: relative;
+        margin-bottom: 2rem;
+    }
+
+    .project-image {
+        border-radius: 15px;
+        object-fit: cover;
+    }
+
+    .hover-mask {
+        position: relative;
+        top: 0;
+        right: 0;
+        width: 100%;
+        transform: none;
+        opacity: 1;
+        margin-top: 1rem;
+        padding: 1rem;
+    }
+
+    .project-info {
+        width: 100%;
+        padding: 1.5rem;
+        box-sizing: border-box;
+    }
+
+    .project-title {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        word-break: break-word;
+    }
+
+    .project-description {
+        font-size: 0.95rem;
+        word-break: break-word;
+    }
+
+    .project-technologies {
+        margin: 1.5rem 0;
+        flex-wrap: wrap;
+    }
+
+    .tech-tag {
+        font-size: 0.85rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .project-links {
+        flex-direction: column;
+        gap: 0.8rem;
+        width: 100%;
+        margin-top: 1rem;
+    }
+
+    .project-link {
+        width: 100%;
+        text-align: center;
+        padding: 0.8rem;
+    }
+
+    /* Desactivar efectos hover en móvil */
+    .project-card:hover .project-image-wrapper {
+        width: 100%;
+        height: 250px;
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+
+    .project-card:hover .hover-mask {
+        transform: none;
+    }
+
+    /* Ajustes para el fondo decorativo en móvil */
+    .decorative-bg {
+        opacity: 1;
+    }
+
+    .circle-cream {
+        width: 80px;
+        height: 80px;
+    }
+
+    .circle-pink {
+        width: 60px;
+        height: 60px;
+    }
+
+    .circle-green {
+        width: 25px;
+        height: 25px;
+    }
+
+    .shape-wave {
+        width: 100px;
+        height: 100px;
+    }
+
+    .shape-blob {
+        width: 70px;
+        height: 70px;
     }
 } 

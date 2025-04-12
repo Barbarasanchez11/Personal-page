@@ -105,7 +105,7 @@ const Projects = () => {
     {
       number: "01",
       title: "Futura Biolab",
-      description: "FuturaBioLab es una plataforma colaborativa de código abierto que permite a los usuarios compartir experimentos e investigaciones sobre biomateriales. Desarrollada con tecnologías web modernas, la plataforma facilita la interacción entre creadores y la difusión de proyectos sostenibles, integrando herramientas de gestión de contenido y comunicación directa, todo en un entorno accesible y escalable.",
+      description: "FuturaBioLab es una plataforma colaborativa de código abierto que conecta creadores e investigadores de biomateriales. Permite compartir proyectos, gestionar contenido y fomentar la innovación sostenible en un entorno accesible y escalable.",
       imageUrl: "https://picsum.photos/800/500?random=1",
       technologies: ["React", "Node.js", "MongoDb"],
       projectLink: "#",

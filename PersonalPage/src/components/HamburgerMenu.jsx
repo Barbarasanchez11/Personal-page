@@ -6,10 +6,10 @@ const HamburgerMenu = ({ isOpen, toggleMenu }) => {
         <>
             <nav className={`slide-menu ${isOpen ? 'open' : ''}`}>
                 <div className="menu-content">
-                    <Link to="/" onClick={toggleMenu}>Home</Link>
-                    <Link to="/about" onClick={toggleMenu}>Sobre mi</Link>
-                    <Link to="/projects" onClick={toggleMenu}>Proyectos</Link>
-                    <Link to="/contact" onClick={toggleMenu}>Contacto</Link>
+                    <Link to="/" onClick={toggleMenu} className="menu-link light-blue">Home</Link>
+                    <Link to="/about" onClick={toggleMenu} className="menu-link light-orange">Sobre mi</Link>
+                    <Link to="/projects" onClick={toggleMenu} className="menu-link light-green">Proyectos</Link>
+                    <Link to="/contact" onClick={toggleMenu} className="menu-link medium-blue">Contacto</Link>
                 </div>
             </nav>
             {isOpen && <div className="nav-overlay" onClick={toggleMenu}></div>}

@@ -5,7 +5,7 @@
     justify-content: center;
     align-items: center;
     padding: 2rem;
-    background-color: #e8bdfb;
+    background-color: var(--purple);
 }
 
 .contact-container {
@@ -29,7 +29,7 @@
 
 /* Mantener los estilos existentes del patrón geométrico */
 .column.left {
-    background-color: #008b74;
+    background-color: var(--teal);
     position: relative;
     overflow: hidden;
 }
@@ -39,7 +39,7 @@
     position: absolute;
     width: 200%;
     aspect-ratio: 1;
-    background-color: #8bd17c;
+    background-color: var(--light-green);
     border-radius: 50%;
     left: -100%;
     top: 50%;
@@ -47,7 +47,7 @@
 }
 
 .column.center {
-    background-color: #ff70a6;
+    background-color: var(--pink);
     position: relative;
     overflow: hidden;
     display: flex;
@@ -61,7 +61,7 @@
     position: absolute;
     width: 80%;
     aspect-ratio: 1;
-    background-color: #9667e0;
+    background-color: var(--purple);
     border-radius: 50%;
     top: 50%;
     left: 50%;
@@ -73,7 +73,7 @@
     position: absolute;
     width: 80%;
     aspect-ratio: 1;
-    background-color: #ffba66;
+    background-color: var(--light-orange);
     border-radius: 50%;
     bottom: 0;
     left: 50%;
@@ -81,7 +81,7 @@
 }
 
 .column.right {
-    background-color: #2196f3;
+    background-color: var(--medium-blue);
     position: relative;
     overflow: hidden;
 }
@@ -91,7 +91,7 @@
     position: absolute;
     width: 140%;
     aspect-ratio: 1;
-    background-color: #a5d8f3;
+    background-color: var(--light-blue);
     border-radius: 50%;
     top: 0;
     left: 50%;
@@ -170,8 +170,8 @@
 }
 
 .contact-submit {
-    background: #4f9df5;
-    color: #1a1a1a;
+    background: var(--medium-blue);
+    color: var(--white);
     padding: 1rem;
     border: none;
     border-radius: 8px;
@@ -182,7 +182,7 @@
 }
 
 .contact-submit:hover {
-    background: #b3d3f5;
+    background: var(--light-blue);
     transform: translateY(-2px);
 }
 
@@ -263,10 +263,10 @@
 }
 
 .contact-success {
-    color: #ffba66;
+    color: var(--light-orange);
     text-align: center;
     padding: 0.75rem;
-    background-color:#9667e0;
+    background-color: var(--purple);
     border-radius: 8px;
 }
 

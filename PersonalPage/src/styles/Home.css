@@ -39,7 +39,7 @@
     font-size: clamp(3rem, 8vw, 7rem);
     font-weight: 800;
     margin: 0;
-    color: #8bb50a;
+    color: var(--light-green);
     text-align: center;
     position: relative;
 }
@@ -47,32 +47,32 @@
 .home h1 span {
     display: inline-block;
     color: transparent;
-    -webkit-text-stroke: 2px #8bb50a;
+    -webkit-text-stroke: 2px var(--light-green);
     transform-style: preserve-3d;
     backface-visibility: hidden;
     margin: 0 0.02em;
     text-shadow: 
-        0 0 20px rgba(139, 181, 10, 0.1),
-        0 0 40px rgba(139, 181, 10, 0.1);
+        0 0 20px rgba(159, 206, 151, 0.1),
+        0 0 40px rgba(159, 206, 151, 0.1);
 }
 
 .home .role {
     font-size: clamp(1.5rem, 4vw, 3rem);
     font-weight: 500;
     margin: 0;
-    color: #8bb50a;
+    color: var(--light-green);
     opacity: 0.9;
 }
 
 .home .role span {
     display: inline-block;
-    color: #8bb50a;
+    color: var(--light-green);
     transform-style: preserve-3d;
     backface-visibility: hidden;
     margin: 0 0.02em;
     text-shadow: 
         2px 2px 4px rgba(0, 0, 0, 0.2),
-        0 0 20px rgba(139, 181, 10, 0.2);
+        0 0 20px rgba(159, 206, 151, 0.2);
 }
 
 /* Efecto hover en las letras */
@@ -89,7 +89,7 @@
     }
 
     .home h1 span {
-        -webkit-text-stroke: 1.5px #8bb50a;
+        -webkit-text-stroke: 1.5px var(--light-green);
     }
 
     .title-container {
@@ -100,7 +100,7 @@
 
 @media (max-width: 480px) {
     .home h1 span {
-        -webkit-text-stroke: 1px #8bb50a;
+        -webkit-text-stroke: 1px var(--light-green);
     }
 
     .title-container {
