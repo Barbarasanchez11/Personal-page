@@ -15,7 +15,7 @@ const Header = () => {
 
     return (
         <header className="header">
-            <div className="logo">BS</div>
+            <div className="logo"><a href='/'>BS</a></div>
             <button 
                 className="menu-button"
                 onClick={toggleMenu}

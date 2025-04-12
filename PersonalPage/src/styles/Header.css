@@ -23,14 +23,19 @@
 .logo {
     font-size: 1.5rem;
     font-weight: bold;
-    color: var(--text-color);
+    color: #a779e6;
     text-decoration: none;
     z-index: 1000;
     transition: color 0.3s var(--transition-timing);
+    
+}
+.logo a{
+    text-decoration: none;
+    color: #a779e6;
 }
 
-.logo:hover {
-    color: var(--accent-color);
+.logo:hover, .logo a:hover {
+    color: #e8bdfb;
 }
 
 .nav-links {
