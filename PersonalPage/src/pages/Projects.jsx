@@ -134,7 +134,7 @@ const Projects = () => {
       title: "Hoverboard",
       description: "Pequeño proyecto web donde los colores se iluminan en una cuadrícula animada, desafiando la memoria visual del usuario. Desarrollado con HTML, CSS y JavaScript.",
       imageUrl: "https://picsum.photos/800/500?random=4",
-      technologies: ["Angular", "Django", "MySQL"],
+      technologies: ["Js", "CSS", "HTML"],
       projectLink: "#",
       githubLink: "https://github.com/Barbarasanchez11/Hoverboard"
     }
