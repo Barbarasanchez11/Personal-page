@@ -87,6 +87,8 @@
     align-items: flex-start;
     gap: 2.5rem;
     padding: 4rem;
+    text-decoration: none;
+
 }
 
 .menu-content a {
@@ -96,11 +98,14 @@
     position: relative;
     transition: all 0.3s var(--transition-timing);
     -webkit-text-stroke: 0px var(--text-color);
+    text-decoration: none;
+    
 }
 
 .menu-content a:hover {
     color: transparent;
     -webkit-text-stroke: 1px var(--text-color);
+    text-decoration: none;
 }
 
 .menu-content a::after {
@@ -112,10 +117,12 @@
     height: 2px;
     background: var(--text-color);
     transition: width 0.3s var(--transition-timing);
+    text-decoration: none;
 }
 
 .menu-content a:hover::after {
     width: 100%;
+    text-decoration: none;
 }
 
 /* Media queries para responsividad */
@@ -216,5 +223,4 @@ body.menu-open {
     .menu-link {
         font-size: 2rem;
     }
-} 
 } 

@@ -8,7 +8,7 @@
     justify-content: space-between;
     align-items: center;
     z-index: 100;
-    background: var(--gradient-bg);
+    
     backdrop-filter: blur(8px);
 }
 
