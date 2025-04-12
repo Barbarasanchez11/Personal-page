@@ -23,6 +23,7 @@
 .nav-brand {
     font-size: 1.5rem;
     font-weight: bold;
+    transition: opacity 0.3s ease;
 }
 
 .nav-brand a {
@@ -65,6 +66,7 @@
 @media (max-width: 768px) {
     .hamburger {
         display: block;
+        z-index: 1001;
     }
 
     .nav-links {
@@ -85,6 +87,11 @@
 
     .nav-links.active {
         transform: translateX(0);
+    }
+
+    /* Ocultar el logo cuando el menú está activo */
+    .nav-links.active + .nav-brand {
+        display: none;
     }
 
     .nav-links .nav-link {

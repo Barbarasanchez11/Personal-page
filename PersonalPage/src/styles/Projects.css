@@ -439,16 +439,20 @@ body {
 }
 
 @media (max-width: 425px) {
-   
+    .projects-page {
+        padding-top: 80px;
+    }
 
     .project-section {
         height: auto;
         min-height: 100vh;
         padding: 1rem;
-        
+        padding-top: 0;
     }
 
-   
+    .project-section:first-child {
+        padding-top: 1rem;
+    }
 
     .project-card {
         width: 100%;
@@ -457,6 +461,7 @@ body {
         display: flex;
         flex-direction: column;
         padding: 1rem;
+        overflow: hidden;
     }
 
     .project-image-wrapper {
@@ -468,6 +473,7 @@ body {
 
     .project-image {
         border-radius: 15px;
+        object-fit: cover;
     }
 
     .hover-mask {
@@ -478,39 +484,47 @@ body {
         transform: none;
         opacity: 1;
         margin-top: 1rem;
+        padding: 1rem;
     }
 
     .project-info {
         width: 100%;
         padding: 1.5rem;
+        box-sizing: border-box;
     }
 
     .project-title {
         font-size: 2rem;
         margin-bottom: 1rem;
+        word-break: break-word;
     }
 
     .project-description {
         font-size: 0.95rem;
+        word-break: break-word;
     }
 
     .project-technologies {
         margin: 1.5rem 0;
+        flex-wrap: wrap;
     }
 
     .tech-tag {
         font-size: 0.85rem;
+        margin-bottom: 0.5rem;
     }
 
     .project-links {
         flex-direction: column;
         gap: 0.8rem;
         width: 100%;
+        margin-top: 1rem;
     }
 
     .project-link {
         width: 100%;
         text-align: center;
+        padding: 0.8rem;
     }
 
     /* Desactivar efectos hover en móvil */
