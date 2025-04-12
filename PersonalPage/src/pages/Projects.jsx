@@ -104,19 +104,19 @@ const Projects = () => {
   const projects = [
     {
       number: "01",
-      title: "Project 1",
-      description: "Una breve descripción del proyecto 1 que muestra sus características principales.",
+      title: "Futura Biolab",
+      description: "FuturaBioLab es una plataforma colaborativa de código abierto que permite a los usuarios compartir experimentos e investigaciones sobre biomateriales. Desarrollada con tecnologías web modernas, la plataforma facilita la interacción entre creadores y la difusión de proyectos sostenibles, integrando herramientas de gestión de contenido y comunicación directa, todo en un entorno accesible y escalable.",
       imageUrl: "https://picsum.photos/800/500?random=1",
-      technologies: ["React", "Node.js", "MongoDB"],
+      technologies: ["React", "Node.js", "MongoDb"],
       projectLink: "#",
       githubLink: "#"
     },
     {
       number: "02",
       title: "Project 2",
-      description: "Una breve descripción del proyecto 2 que muestra sus características principales.",
+      description: "VeganFit Store es una tienda online desarrollada con React para el frontend, Node.js en el backend y MongoDB como base de datos, ofreciendo una experiencia de compra segura y optimizada para productos deportivos y suplementos veganos.",
       imageUrl: "https://picsum.photos/800/500?random=2",
-      technologies: ["Vue.js", "Express", "PostgreSQL"],
+      technologies: ["React", "Node.js", "MongoDb"],
       projectLink: "#",
       githubLink: "#"
     },
@@ -131,12 +131,12 @@ const Projects = () => {
     },
     {
       number: "04",
-      title: "Project 4",
-      description: "Una breve descripción del proyecto 4 que muestra sus características principales.",
+      title: "Hoverboard",
+      description: "Pequeño proyecto web donde los colores se iluminan en una cuadrícula animada, desafiando la memoria visual del usuario. Desarrollado con HTML, CSS y JavaScript.",
       imageUrl: "https://picsum.photos/800/500?random=4",
       technologies: ["Angular", "Django", "MySQL"],
       projectLink: "#",
-      githubLink: "#"
+      githubLink: "https://github.com/Barbarasanchez11/Hoverboard"
     }
   ];
 
