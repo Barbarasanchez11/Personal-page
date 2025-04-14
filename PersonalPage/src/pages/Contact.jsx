@@ -1,8 +1,9 @@
-import { useState } from 'react';
-import emailjs from '@emailjs/browser'; // Importa EmailJS
+import { useState, useRef, useEffect } from 'react';
+import emailjs from '@emailjs/browser';
 import '../styles/Contact.css';
 
 const Contact = () => {
+  const form = useRef();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -12,6 +13,8 @@ const Contact = () => {
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+
+
 
   const validateForm = () => {
     const newErrors = {};
@@ -32,24 +35,24 @@ const Contact = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!validateForm()) return;
-
     setIsSubmitting(true);
+
+    // Validar formulario antes de enviar
+    if (!validateForm()) {
+      setIsSubmitting(false);
+      return;
+    }
+console.log(import.meta.env.VITE_EMAILJS_SERVICE_ID, import.meta.env.VITE_EMAILJS_TEMPLATE_ID,import.meta.env.VITE_EMAILJS_PUBLIC_KEY)
     try {
-      // Enviar el correo usando EmailJS
-      const result = await emailjs.send(
-        'YOUR_SERVICE_ID', // Reemplaza con tu Service ID de EmailJS
-        'YOUR_TEMPLATE_ID', // Reemplaza con tu Template ID de EmailJS
-        {
-          from_name: formData.name,
-          from_email: formData.email,
-          subject: formData.subject,
-          message: formData.message,
-        },
-        'YOUR_USER_ID' // Reemplaza con tu User ID de EmailJS
+      const result = await emailjs.sendForm(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        form.current,
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
 
-      console.log('Correo enviado:', result.text);
+
+      console.log('Formulario enviado con éxito:', result.text);
       setSubmitStatus('success');
       setFormData({
         name: '',
@@ -58,14 +61,14 @@ const Contact = () => {
         message: ''
       });
     } catch (error) {
-      console.error('Error al enviar el correo:', error);
+      console.error('Error al enviar el formulario:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
+      setTimeout(() => setSubmitStatus(null), 3000);
     }
   };
 
-  // El resto del código (return) sigue igual
   return (
     <div className="contact-page">
       <div className="contact-container">
@@ -78,7 +81,7 @@ const Contact = () => {
           <h1 className="contact-heading">Contacto</h1>
           <div className="contact-layout">
             <div className="contact-form-wrapper">
-              <form onSubmit={handleSubmit} noValidate className="contact-form">
+              <form ref={form} onSubmit={handleSubmit} noValidate className="contact-form">
                 <div className="contact-form-group">
                   <input 
                     type="text" 
@@ -182,7 +185,6 @@ const Contact = () => {
                   </svg>
                   LinkedIn
                 </a>
-                
               </div>
               <div className="email-section">
                 <h3 className="email-heading">¿Prefieres el correo?</h3>
