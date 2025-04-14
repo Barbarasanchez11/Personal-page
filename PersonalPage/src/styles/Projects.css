@@ -189,7 +189,7 @@ body {
 .project-image {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Por defecto, usamos cover para pantallas grandes */
+    object-fit: contain;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -455,7 +455,7 @@ body {
 
     .project-image {
         border-radius: 15px;
-        object-fit: contain; /* Cambiar a contain para evitar recortes */
+        object-fit: contain; 
         width: 100%;
         height: 100%;
     }
@@ -696,7 +696,7 @@ body {
 
 @media (max-width: 425px) {
     .projects-page {
-        padding-top: 80px;
+        padding-top:40px;
     }
 
     .project-section {
@@ -913,13 +913,13 @@ body {
     }
 
     .project-image-wrapper {
-        height: auto; /* Ajustar altura automáticamente */
-        aspect-ratio: 16 / 9; /* Mantener relación de aspecto */
+        height: auto; 
+        aspect-ratio: 16 / 9; 
         margin-bottom: 1rem;
     }
 
     .project-image {
-        object-fit: contain; /* Usar contain para evitar recortes */
+        object-fit: contain; 
     }
 
     .project-info {
