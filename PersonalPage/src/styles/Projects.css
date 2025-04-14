@@ -429,7 +429,7 @@ body {
 
 @media (max-width: 425px) {
     .projects-page {
-        padding-top: 80px;
+        padding-top: 40px;
     }
 
     .project-section {
