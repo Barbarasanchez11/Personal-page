@@ -15,18 +15,12 @@ const backgroundColors = [
 
 const getTechIcon = (tech) => {
   const icons = {
-    'React': '/icons/react.svg',
-    'Node.js': '/icons/nodejs.svg',
-    'MongoDB': '/icons/mongodb.svg',
-    'Next.js': '/icons/nextjs.svg',
-    'GraphQL': '/icons/graphql.svg',
-    'Firebase': '/icons/firebase.svg',
-    'Vue.js': '/icons/vuejs.svg',
-    'Express': '/icons/express.svg',
-    'PostgreSQL': '/icons/postgresql.svg',
-    'Angular': '/icons/angular.svg',
-    'Django': '/icons/django.svg',
-    'MySQL': '/icons/mysql.svg'
+    'React': 'https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg',
+    'Node.js': 'https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg',
+    'MongoDB': 'https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg',
+    'JavaScript': 'https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg',
+    'CSS': 'https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg',
+    'HTML': 'https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg'
   };
   return icons[tech] || '/icons/code.svg';
 };
