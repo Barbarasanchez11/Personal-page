@@ -3,7 +3,7 @@ import { useRef } from 'react';
 import '../styles/Projects.css';
 import futura from '../assets/futura.png';
 import veganfit from '../assets/veganfit.png';
-import hoverboard from '../assets/hoverboard.png';
+import colorGame from '../assets/colorGame.png'
 
 // Paleta de colores para los fondos
 const backgroundColors = [
@@ -127,7 +127,7 @@ const Projects = () => {
       number: "03",
       title: "Color game",
       description: "Pequeño proyecto web donde los colores se iluminan en una cuadrícula animada, desafiando la memoria visual del usuario. Desarrollado con HTML, CSS y JavaScript.",
-      imageUrl: hoverboard,
+      imageUrl: colorGame,
       technologies: ["JavaScript", "CSS", "HTML"],
       projectLink: "https://barbarasanchez11.github.io/Hoverboard/",
       githubLink: "https://github.com/Barbarasanchez11/Hoverboard"
