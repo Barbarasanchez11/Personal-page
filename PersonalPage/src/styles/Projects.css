@@ -3,12 +3,9 @@
 .projects-page {
     width: 100%;
     background-color: #ffffff;
-    
-    
 }
 
 .project-section {
-    
     width: 100%;
     height: 100vh;
     position: relative;
@@ -192,15 +189,12 @@ body {
 .project-image {
     width: 100%;
     height: 100%;
-    
-    
+    object-fit: cover; /* Por defecto, usamos cover para pantallas grandes */
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .project-card:hover .project-image {
     border-radius: 0 20px 20px 0;
-   
-    
 }
 
 /* Panel de contenido */
@@ -397,9 +391,7 @@ body {
     }
 
     .project-info {
-    
         padding: 1rem;
-    
     }
 
     .project-title {
@@ -455,14 +447,17 @@ body {
 
     .project-image-wrapper {
         width: 100%;
-        height: 250px;
+        height: auto; /* Permitir que la altura se ajuste según la imagen */
+        aspect-ratio: 16 / 9; /* Mantener una relación de aspecto común para las imágenes */
         position: relative;
         margin-bottom: 2rem;
     }
 
     .project-image {
         border-radius: 15px;
-        object-fit: cover;
+        object-fit: contain; /* Cambiar a contain para evitar recortes */
+        width: 100%;
+        height: 100%;
     }
 
     .hover-mask {
@@ -519,7 +514,8 @@ body {
     /* Desactivar efectos hover en móvil */
     .project-card:hover .project-image-wrapper {
         width: 100%;
-        height: 250px;
+        height: auto; /* Mantener la altura automática */
+        aspect-ratio: 16 / 9;
         position: relative;
         top: 0;
         left: 0;
@@ -670,9 +666,7 @@ body {
     }
 
     .project-info {
-    
         padding: 1rem;
-    
     }
 
     .project-title {
@@ -728,14 +722,17 @@ body {
 
     .project-image-wrapper {
         width: 100%;
-        height: 250px;
+        height: auto;
+        aspect-ratio: 16 / 9;
         position: relative;
         margin-bottom: 2rem;
     }
 
     .project-image {
         border-radius: 15px;
-        object-fit: cover;
+        object-fit: contain;
+        width: 100%;
+        height: 100%;
     }
 
     .hover-mask {
@@ -792,7 +789,8 @@ body {
     /* Desactivar efectos hover en móvil */
     .project-card:hover .project-image-wrapper {
         width: 100%;
-        height: 250px;
+        height: auto;
+        aspect-ratio: 16 / 9;
         position: relative;
         top: 0;
         left: 0;
@@ -915,8 +913,13 @@ body {
     }
 
     .project-image-wrapper {
-        height: 200px;
+        height: auto; /* Ajustar altura automáticamente */
+        aspect-ratio: 16 / 9; /* Mantener relación de aspecto */
         margin-bottom: 1rem;
+    }
+
+    .project-image {
+        object-fit: contain; /* Usar contain para evitar recortes */
     }
 
     .project-info {
@@ -961,4 +964,4 @@ body {
         transform: none;
         opacity: 1;
     }
-} 
+}
