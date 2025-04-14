@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion';
 import '../styles/About.css';
 
+import portrait from '../assets/portrait.jpeg'
+
 const timelineData = [
   {
     year: "2024",
@@ -42,7 +44,7 @@ const About = () => {
       <div className="content-wrapper">
         <div className="about-card">
           <div className="card-image">
-            <img src="/profile.jpg" alt="Barbara Sanchez" />
+            <img src={portrait} alt="Barbara Sanchez" />
           </div>
           <div className="card-content">
             <p className="tagline">Desarrolladora Web Full Stack</p>
