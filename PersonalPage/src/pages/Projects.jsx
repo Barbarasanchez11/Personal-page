@@ -111,7 +111,7 @@ const Projects = () => {
       description: "FuturaBioLab es una plataforma colaborativa de código abierto que conecta creadores e investigadores de biomateriales. Permite compartir proyectos, gestionar contenido y fomentar la innovación sostenible en un entorno accesible y escalable.",
       imageUrl: futura,
       technologies: ["React", "Node.js", "MongoDB"],
-      projectLink: "#",
+      projectLink: "https://futurabiolab2.netlify.app/",
       githubLink: "https://github.com/Barbarasanchez11/FuturaBioLab"
     },
     {
@@ -125,11 +125,11 @@ const Projects = () => {
     },
     {
       number: "03",
-      title: "Hoverboard",
+      title: "Color game",
       description: "Pequeño proyecto web donde los colores se iluminan en una cuadrícula animada, desafiando la memoria visual del usuario. Desarrollado con HTML, CSS y JavaScript.",
       imageUrl: hoverboard,
       technologies: ["JavaScript", "CSS", "HTML"],
-      projectLink: "#",
+      projectLink: "https://barbarasanchez11.github.io/Hoverboard/",
       githubLink: "https://github.com/Barbarasanchez11/Hoverboard"
     }
   ];
