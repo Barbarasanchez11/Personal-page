@@ -1,20 +1,24 @@
 import { useEffect, useState } from "react";
-import "../styles/BootcampLetter.css"; 
+import "../styles/BootcampLetter.css";
 
 const letterLines = [
-  "Querida IA que aún no existe,",
+  "Hola, equipo del bootcamp 👋",
   "",
-  "Hoy te escribo desde el presente, aún sin saber programarte del todo, sin entender del todo tus capas, tus pesos, tus sesgos...",
-  "Pero con una certeza: quiero construirte.",
+  "Sé que probablemente ahora mismo estáis leyendo un montón de candidaturas muy intensas, llenas de grandes palabras como 'transformación digital', 'visión estratégica' o 'disrupción'. Esta no es una de esas.",
   "",
-  "No quiero solo aprender sobre inteligencia artificial.",
-  "Quiero colaborar contigo, diseñarte, resolver problemas reales, y quizá, crear algo que nunca haya existido antes.",
+  "Vengo con algo más simple: tengo muchísimas ganas de aprender Inteligencia Artificial.",
+  "No porque esté de moda (aunque sí, un poco), sino porque llevo tiempo pensando en cómo usarla para crear cosas útiles, raras o simplemente divertidas.",
   "",
-  "Este bootcamp no es una puerta. Es el primer paso hacia ese futuro.",
+  "He hecho cursos, he jugado con modelos, he generado imágenes que dan miedo sin querer (lo típico)... pero sé que me falta estructura, feedback, y estar rodeado de gente que también esté loca por esto.",
   "",
-  "No tengo todas las respuestas. Pero tengo una obsesión: aprender.",
+  "Por eso este bootcamp me parece perfecto. Porque no quiero aprender solo. Quiero aprender bien.",
   "",
-  "Atentamente,",
+  "No prometo ser la persona más técnica desde el día uno, pero sí la que más pregunta, más prueba, más se frustra y vuelve a intentarlo con una taza de café en la mano.",
+  "",
+  "Así que esta es mi (humilde pero motivada) candidatura. Si me cogéis, prometo darlo todo. Y si no… bueno, probablemente os entrene una IA que escriba mejores cartas el año que viene 😉",
+  "",
+  "Gracias por leer, de verdad.",
+  "",
   "Bárbara",
 ];
 
@@ -30,7 +34,7 @@ export default function BootcampLetter() {
         const timeout = setTimeout(() => {
           setCurrentText((prev) => prev + letterLines[currentLine][charIndex]);
           setCharIndex(charIndex + 1);
-        }, 28); // velocidad de escritura
+        }, 28);
         return () => clearTimeout(timeout);
       } else {
         setDisplayedLines((prev) => [...prev, letterLines[currentLine]]);
