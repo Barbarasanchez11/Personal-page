@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "../styles/BootcampLetter.css";
 
 const letterLines = [
-  "Hola, equipo del bootcamp 👋",
+  "Hola, Somos F5",
   "",
   "Sé que probablemente ahora mismo estáis leyendo un montón de candidaturas muy intensas, llenas de grandes palabras como 'transformación digital', 'visión estratégica' o 'disrupción'. Esta no es una de esas.",
   "",
@@ -15,7 +15,7 @@ const letterLines = [
   "",
   "No prometo ser la persona más técnica desde el día uno, pero sí la que más pregunta, más prueba, más se frustra y vuelve a intentarlo con una taza de café en la mano.",
   "",
-  "Así que esta es mi (humilde pero motivada) candidatura. Si me cogéis, prometo darlo todo. Y si no… bueno, probablemente os entrene una IA que escriba mejores cartas el año que viene 😉",
+  "Así que esta es mi (humilde pero motivada) candidatura. Si me cogéis, prometo darlo todo. Y si no… bueno, probablemente os entrene una IA que escriba mejores cartas el año que viene",
   "",
   "Gracias por leer, de verdad.",
   "",
