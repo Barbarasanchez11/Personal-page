@@ -20,17 +20,26 @@ const letterLines = [
 
 export default function BootcampLetter() {
   const [displayedLines, setDisplayedLines] = useState([]);
-  const [index, setIndex] = useState(0);
+  const [currentLine, setCurrentLine] = useState(0);
+  const [currentText, setCurrentText] = useState("");
+  const [charIndex, setCharIndex] = useState(0);
 
   useEffect(() => {
-    if (index < letterLines.length) {
-      const timeout = setTimeout(() => {
-        setDisplayedLines((prev) => [...prev, letterLines[index]]);
-        setIndex(index + 1);
-      }, 1000);
-      return () => clearTimeout(timeout);
+    if (currentLine < letterLines.length) {
+      if (charIndex < letterLines[currentLine].length) {
+        const timeout = setTimeout(() => {
+          setCurrentText((prev) => prev + letterLines[currentLine][charIndex]);
+          setCharIndex(charIndex + 1);
+        }, 28); // velocidad de escritura
+        return () => clearTimeout(timeout);
+      } else {
+        setDisplayedLines((prev) => [...prev, letterLines[currentLine]]);
+        setCurrentLine(currentLine + 1);
+        setCurrentText("");
+        setCharIndex(0);
+      }
     }
-  }, [index]);
+  }, [charIndex, currentLine]);
 
   return (
     <main className="bootcamp-container">
@@ -38,7 +47,10 @@ export default function BootcampLetter() {
         {displayedLines.map((line, i) => (
           <p key={i} className="letter-line">{line}</p>
         ))}
-        {index === letterLines.length && (
+        {currentLine < letterLines.length && (
+          <p className="letter-line typing">{currentText}</p>
+        )}
+        {currentLine === letterLines.length && (
           <a href="/" className="back-button">Volver al inicio</a>
         )}
       </div>

@@ -995,3 +995,64 @@ body {
         padding: 1rem;
     }
 }}
+
+.letter-container {
+  max-width: 600px;
+  margin: 3rem auto;
+  padding: 2.5rem 2rem;
+  background: #fff9f3;
+  border-radius: 18px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.10), 0 2px 8px rgba(167,121,230,0.08);
+  border: 1.5px solid #f3e0c7;
+  font-family: 'Montserrat', sans-serif;
+  position: relative;
+}
+
+.letter-header {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #a779e6;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.letter-body {
+  font-size: 1.1rem;
+  color: #4f4f4f;
+  line-height: 1.8;
+  margin-bottom: 2.5rem;
+  white-space: pre-line;
+}
+
+.letter-signature {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  color: #fa80b8;
+  text-align: right;
+  margin-top: 2rem;
+  font-weight: 600;
+}
+
+.letter-button {
+  display: block;
+  margin: 2rem auto 0 auto;
+  padding: 0.8rem 2.2rem;
+  background: linear-gradient(90deg, #fa80b8 60%, #a779e6 100%);
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 30px;
+  box-shadow: 0 2px 8px rgba(167,121,230,0.10);
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.letter-button:hover {
+  background: linear-gradient(90deg, #a779e6 60%, #fa80b8 100%);
+  transform: scale(1.04);
+}
