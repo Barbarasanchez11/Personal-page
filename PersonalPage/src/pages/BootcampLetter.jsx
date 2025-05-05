@@ -55,7 +55,7 @@ export default function BootcampLetter() {
           <p className="letter-line typing">{currentText}</p>
         )}
         {currentLine === letterLines.length && (
-          <a href="/" className="back-button">Ver mi página personal</a>
+          <a href="/" className="back-button">Ir a mi página personal</a>
         )}
       </div>
     </main>
