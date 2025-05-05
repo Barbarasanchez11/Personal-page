@@ -234,14 +234,14 @@ body {
 .project-title {
     font-size: 2rem;
     font-weight: bold;
-    color: white;
+    color: #666;
     margin-bottom: 1rem;
 }
 
 .project-description {
     font-size: 1rem;
     line-height: 1.5;
-    color: white;
+    color: #666;
     margin-bottom: 1rem;
     display: -webkit-box;
     -webkit-box-orient: vertical;
@@ -263,7 +263,7 @@ body {
     padding: 0.3rem 0.8rem;
     border-radius: 15px;
     font-size: 0.9rem;
-    color: white;
+    color: #666;
     display: flex;
     align-items: center;
     gap: 0.5rem;
@@ -292,8 +292,8 @@ body {
 }
 
 .project-link.primary,.project-link.secondary {
-    border: 2px solid white;
-    color: white;
+    border: 2px solid #666;
+    color: #666;
 }
 
 .project-link.primary:hover,.project-link.secondary:hover {
