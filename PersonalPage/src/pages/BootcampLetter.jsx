@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "../styles/BootcampLetter.css";
 
 const letterLines = [
-  "Hola, Factoria ",
+  "Hola, Factoria",
   "",
   "Sé que probablemente ahora mismo estáis leyendo un montón de candidaturas muy intensas, llenas de grandes palabras como 'transformación digital', 'visión estratégica' o 'disrupción'. Esta no es una de esas.",
   "",

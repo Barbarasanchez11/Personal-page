@@ -3,7 +3,8 @@ import { useRef } from 'react';
 import '../styles/Projects.css';
 import futura from '../assets/futura.png';
 import veganfit from '../assets/veganfit.png';
-import colorGame from '../assets/colorGame.png'
+import colorGame from '../assets/colorGame.png';
+import agrotech from '../assets/agrotech.png';
 
 // Paleta de colores para los fondos
 const backgroundColors = [
@@ -20,7 +21,12 @@ const getTechIcon = (tech) => {
     'MongoDB': 'https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg',
     'JavaScript': 'https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg',
     'CSS': 'https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg',
-    'HTML': 'https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg'
+    'HTML': 'https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg',
+    'Python': 'https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg',
+    'Streamlit': 'https://streamlit.io/images/brand/streamlit-logo-secondary-colormark-darktext.png',
+    'Firebase': 'https://raw.githubusercontent.com/devicons/devicon/master/icons/firebase/firebase-plain.svg',
+    'Pandas': 'https://raw.githubusercontent.com/devicons/devicon/master/icons/pandas/pandas-original.svg',
+    'Scikit-learn': 'https://raw.githubusercontent.com/devicons/devicon/master/icons/scikitlearn/scikitlearn-original.svg'
   };
   return icons[tech] || '/icons/code.svg';
 };
@@ -110,6 +116,15 @@ const Projects = () => {
     },
     {
       number: "02",
+      title: "AgroTech Verde",
+      description: "AgroTech Verde es una aplicación interactiva que recomienda cultivos óptimos según las condiciones del terreno, utilizando inteligencia artificial para analizar parámetros. Permite registrar datos y consultar un historial de cultivos, optimizando la toma de decisiones agrícolas.",
+      imageUrl: agrotech,
+      technologies: ["Python", "Streamlit", "Firebase", "Pandas", "Scikit-learn"],
+      projectLink: "https://barbarasanchez11-agrotech-verde-app-2kwtr2.streamlit.app/",
+      githubLink: "https://github.com/Barbarasanchez11/AgroTech-Verde"
+    },
+    {
+      number: "03",
       title: "VeganFit Store",
       description: "VeganFit Store es una tienda online desarrollada con React para el frontend, Node.js en el backend y MongoDB como base de datos, ofreciendo una experiencia de compra segura y optimizada para productos deportivos y suplementos veganos.",
       imageUrl: veganfit,
@@ -118,7 +133,7 @@ const Projects = () => {
       githubLink: "https://github.com/Barbarasanchez11/backend-project-break"
     },
     {
-      number: "03",
+      number: "04",
       title: "Color game",
       description: "Pequeño proyecto web donde los colores se iluminan en una cuadrícula animada, desafiando la memoria visual del usuario. Desarrollado con HTML, CSS y JavaScript.",
       imageUrl: colorGame,
