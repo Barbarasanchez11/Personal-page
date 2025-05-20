@@ -6,12 +6,12 @@ import veganfit from '../assets/veganfit.png';
 import colorGame from '../assets/colorGame.png';
 import agrotech from '../assets/agrotech.png';
 
-// Paleta de colores para los fondos
+
 const backgroundColors = [
-  '#FFE5E5', // Rosa suave
-  '#E5F4FF', // Azul suave
-  '#F4FFE5', // Verde suave
-  '#FFE5F4'  // Lila suave
+  '#FFE5E5',
+  '#E5F4FF', 
+  '#F4FFE5', 
+  '#FFE5F4' 
 ];
 
 const getTechIcon = (tech) => {
