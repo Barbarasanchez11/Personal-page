@@ -9,7 +9,7 @@ const letterLines = [
   "Vengo con algo más simple: tengo muchísimas ganas de aprender Inteligencia Artificial.",
   "No porque esté de moda (aunque sí, un poco), sino porque llevo tiempo pensando en cómo usarla para crear cosas útiles, raras o simplemente divertidas.",
   "",
-  "He hecho cursos, he jugado con modelos, he generado imágenes que dan miedo sin querer (lo típico)... pero sé que me falta estructura, feedback, y estar rodeada de personas que también esté loca por esto.",
+  "He hecho cursos, he jugado con modelos, he generado imágenes que dan miedo sin querer (lo típico)... pero sé que me falta estructura, feedback, y estar rodeada de personas que también estén locas por esto.",
   "",
   "Por eso este bootcamp me parece perfecto. Porque no quiero aprender solamente. Quiero aprender bien.",
   "",
