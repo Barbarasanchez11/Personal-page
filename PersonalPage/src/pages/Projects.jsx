@@ -1,7 +1,7 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import '../styles/Projects.css';
-import agrotech from "../assets/agrotech.png";
+import agrotech from "../assets/Agrotech.png";
 import colorGame from "../assets/colorGame.png";
 import futura from "../assets/futura.png";
 import portrait from "../assets/portrait.jpeg";
