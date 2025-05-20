@@ -1,10 +1,11 @@
 import { motion, useInView } from 'framer-motion';
 import { useRef } from 'react';
 import '../styles/Projects.css';
-import futura from '../../assets/futura.png';
-import veganfit from '../../assets/veganfit.png';
-import colorGame from '../../assets/colorGame.png';
-import agrotech from "../../assets/agrotech.png";
+import agrotech from "../assets/agrotech.png";
+import colorGame from "../assets/colorGame.png";
+import futura from "../assets/futura.png";
+import portrait from "../assets/portrait.jpeg";
+import veganfit from "../assets/veganfit.png";
 
 
 const backgroundColors = [
